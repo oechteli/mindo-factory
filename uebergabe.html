@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>mindo-factory · Übergabeprotokoll</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  .handover-meta {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+  }
+  .meta-badge {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.8rem;
+    background: var(--gray-light);
+    border: 1px solid var(--border);
+    padding: 5px 12px;
+    border-radius: 99px;
+    color: var(--text-muted);
+  }
+  .meta-badge strong { color: var(--text); }
+  .handover-block {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 16px;
+  }
+  .handover-block h3 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+  }
+  .handover-block p, .handover-block li {
+    font-size: 0.9rem;
+    color: var(--text);
+    line-height: 1.7;
+  }
+  .handover-block ul { list-style: none; padding: 0; }
+  .handover-block ul li { padding: 4px 0; }
+  .handover-block ul li::before { content: "•  "; color: var(--purple); }
+
+  .step-list { list-style: none; padding: 0; counter-reset: steps; }
+  .step-list li {
+    counter-increment: steps;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--gray-light);
+    font-size: 0.9rem;
+  }
+  .step-list li:last-child { border-bottom: none; }
+  .step-list li::before {
+    content: counter(steps);
+    min-width: 26px;
+    height: 26px;
+    background: var(--purple-light);
+    color: var(--purple);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.78rem;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .step-list li .step-body { flex: 1; }
+  .step-list li .step-body strong { display: block; margin-bottom: 2px; }
+  .step-list li .step-body span { color: var(--text-muted); font-size: 0.83rem; }
+  .step-list li .step-badge {
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 99px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .badge-you { background: #fef3c7; color: #92400e; }
+  .badge-claude { background: var(--purple-light); color: var(--purple-dark); }
+  .badge-done { background: var(--green-light); color: #166534; }
+
+  .context-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  @media (max-width: 700px) { .context-grid { grid-template-columns: 1fr; } }
+
+  .context-card {
+    background: var(--gray-light);
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 0.85rem;
+  }
+  .context-card h4 { font-size: 0.78rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 6px; }
+  .context-card p, .context-card code { color: var(--text); font-size: 0.85rem; word-break: break-all; }
+  code {
+    background: #e2e8f0;
+    padding: 1px 5px;
+    border-radius: 4px;
+    font-size: 0.82rem;
+  }
+
+  .warn-box {
+    background: #fef3c7;
+    border: 1px solid #fcd34d;
+    border-radius: 10px;
+    padding: 14px 18px;
+    font-size: 0.88rem;
+    color: #78350f;
+    margin-bottom: 16px;
+  }
+  .warn-box strong { display: block; margin-bottom: 4px; }
+
+  .ok-box {
+    background: var(--green-light);
+    border: 1px solid #86efac;
+    border-radius: 10px;
+    padding: 14px 18px;
+    font-size: 0.88rem;
+    color: #14532d;
+    margin-bottom: 16px;
+  }
+  .ok-box strong { display: block; margin-bottom: 4px; }
+
+  .file-list { list-style: none; padding: 0; }
+  .file-list li {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    padding: 5px 0;
+    border-bottom: 1px solid var(--gray-light);
+    font-size: 0.86rem;
+  }
+  .file-list li:last-child { border-bottom: none; }
+  .file-list .file-path { font-family: monospace; color: var(--purple); flex: 1; }
+  .file-list .file-note { color: var(--text-muted); font-size: 0.8rem; }
+</style>
+</head>
+<body>
+
+<aside class="sidebar">
+  <div class="sidebar-logo">
+    <a href="index.html"><span class="logo-icon">⚙️</span><div><div class="logo-text">mindo-factory</div><div class="logo-sub">Internes Projekt-Dashboard</div></div></a>
+  </div>
+  <nav class="sidebar-nav">
+    <div class="nav-group">
+      <div class="nav-group-label">Start</div>
+      <a href="index.html"><span class="nav-icon">🏠</span> Übersicht</a>
+      <a href="status.html"><span class="nav-icon">📊</span> Aktueller Status <span class="nav-badge wip">Aktiv</span></a>
+      <a href="uebergabe.html" class="active"><span class="nav-icon">🔁</span> Übergabeprotokoll <span class="nav-badge wip">Neu</span></a>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-label">Planung</div>
+      <a href="roadmap.html"><span class="nav-icon">📋</span> Roadmap</a>
+      <a href="apps.html"><span class="nav-icon">📱</span> Alle Apps</a>
+      <a href="preise.html"><span class="nav-icon">💰</span> Preismodell</a>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-label">Das System</div>
+      <a href="architektur.html"><span class="nav-icon">🏛️</span> Architektur</a>
+      <a href="produktion.html"><span class="nav-icon">🏭</span> App-Produktion</a>
+      <a href="marketing.html"><span class="nav-icon">🎬</span> Marketing & YouTube</a>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-label">Projekt-Info</div>
+      <a href="marke.html"><span class="nav-icon">🎨</span> Marke & Produkte</a>
+      <a href="techstack.html"><span class="nav-icon">🔧</span> Tech-Stack</a>
+    </div>
+  </nav>
+  <div class="sidebar-footer"><strong>Stand: Juni 2026</strong>Wird von Claude aktualisiert wenn du den Platz verlässt.</div>
+</aside>
+
+<div class="page-wrap">
+<div class="page-content">
+
+  <div class="page-header">
+    <h1>🔁 Übergabeprotokoll</h1>
+    <p>Hier steht immer, wo das Projekt gerade steht — damit du von jedem PC oder nach jeder Pause sofort weiterarbeiten kannst. Claude aktualisiert diese Seite am Ende jeder Arbeits-Session.</p>
+    <span class="updated">🤖 Zuletzt aktualisiert: 23. Juni 2026 — Session mit Claude</span>
+  </div>
+
+  <!-- Meta-Badges -->
+  <div class="handover-meta">
+    <div class="meta-badge">📍 Phase <strong>1 — Sockel</strong></div>
+    <div class="meta-badge">🌿 Branch <strong>master</strong></div>
+    <div class="meta-badge">📦 Portal-Repo <strong>oechteli/simplymindo-portal</strong></div>
+    <div class="meta-badge">📦 Roadmap-Repo <strong>oechteli/mindo-factory</strong></div>
+    <div class="meta-badge">🌐 Roadmap live <strong>simplymindo-roadmap.pages.dev</strong></div>
+    <div class="meta-badge">🛒 Portal <strong>noch nicht deployt</strong></div>
+  </div>
+
+  <!-- Was zuletzt gemacht wurde -->
+  <div class="handover-block">
+    <h3>✅ Was in der letzten Session gemacht wurde</h3>
+    <ul>
+      <li>Supabase-Schema fertig geschrieben — <code>profiles</code> + <code>user_apps</code> Tabellen, RLS-Policies, Auth-Trigger</li>
+      <li>Dashboard komplett neu gebaut — zeigt freigeschaltete Apps, Plan-Banner (free/flex/unlimited), Upgrade-Links</li>
+      <li>App-Router <code>/app/[id]</code> — Zugriffsprüfung gegen Supabase, Paywall für nicht freigeschaltete Apps</li>
+      <li>Checkout-API für alle 3 Pläne — Einzeln (einmalig) / Flex + Unlimited (Abo), Stripe-Session mit Metadaten</li>
+      <li>Webhook fertig — schreibt <code>user_apps</code> bei Einzelkauf, aktualisiert <code>subscription_status</code> bei Abo/Kündigung</li>
+      <li>Aufgaben-Planer als erste App — Prioritäten, Abhakliste, KI-Tagesplan via Claude Haiku</li>
+      <li>KI-API-Route <code>/api/ai/aufgaben</code> für den Aufgaben-Planer</li>
+      <li>GitHub gepusht (beide Repos), Obsidian-Notiz aktualisiert, Roadmap-Checkboxen abgehakt</li>
+    </ul>
+  </div>
+
+  <!-- Offene Aufgaben aufgeteilt nach Zuständigkeit -->
+  <div class="handover-block">
+    <h3>📋 Nächste Schritte — wer macht was</h3>
+
+    <div class="warn-box">
+      <strong>🙋 Das musst du manuell erledigen (Claude kann das nicht):</strong>
+      Diese 3 Schritte blockieren den Launch. Danach kann Claude alles weitere bauen und deployen.
+    </div>
+
+    <ol class="step-list">
+      <li>
+        <div class="step-body">
+          <strong>Supabase SQL ausführen</strong>
+          <span>Im Supabase Dashboard → SQL Editor → Datei <code>C:\Users\mail\simplymindo\supabase-schema-simplymindo.sql</code> öffnen, Inhalt einfügen, ausführen. Erstellt profiles + user_apps + RLS + Trigger.</span>
+        </div>
+        <span class="step-badge badge-you">Du</span>
+      </li>
+      <li>
+        <div class="step-body">
+          <strong>3 Stripe-Produkte anlegen</strong>
+          <span>Stripe Dashboard → Products → Create. Einzeln: 1,99 € einmalig. Flex: 7,99 €/Monat. Unlimited: 14,99 €/Monat. Die drei Price-IDs notieren.</span>
+        </div>
+        <span class="step-badge badge-you">Du</span>
+      </li>
+      <li>
+        <div class="step-body">
+          <strong>Price-IDs in .env.local eintragen</strong>
+          <span>Datei: <code>C:\Users\mail\simplymindo\.env.local</code>. Variablen: <code>STRIPE_PRICE_ID_EINZELN</code>, <code>STRIPE_PRICE_ID_FLEX</code>, <code>STRIPE_PRICE_ID_UNLIMITED</code>.</span>
+        </div>
+        <span class="step-badge badge-you">Du</span>
+      </li>
+      <li>
+        <div class="step-body">
+          <strong>Cloudflare Pages — Portal verbinden</strong>
+          <span>Cloudflare Dashboard → Pages → Connect to Git → Repo <code>oechteli/simplymindo-portal</code>. Framework: Next.js. Build: <code>npm run build</code>. Alle .env-Variablen eintragen.</span>
+        </div>
+        <span class="step-badge badge-you">Du</span>
+      </li>
+      <li>
+        <div class="step-body">
+          <strong>Stripe Webhook eintragen</strong>
+          <span>Stripe Dashboard → Webhooks → Add endpoint. URL: <code>https://simplymindo-portal.pages.dev/api/webhook</code>. Events: <code>checkout.session.completed</code>, <code>customer.subscription.updated</code>, <code>customer.subscription.deleted</code>. Webhook-Secret in .env.local als <code>STRIPE_WEBHOOK_SECRET</code>.</span>
+        </div>
+        <span class="step-badge badge-you">Du</span>
+      </li>
+      <li>
+        <div class="step-body">
+          <strong>End-to-End Test</strong>
+          <span>Google-Login → Aufgaben-Planer für 1,99 € kaufen → KI-Tagesplan abrufen. Damit ist Phase 1 vollständig abgeschlossen.</span>
+        </div>
+        <span class="step-badge badge-you">Du</span>
+      </li>
+    </ol>
+
+    <div style="margin-top: 16px;">
+      <div class="ok-box">
+        <strong>🤖 Das macht Claude wenn du zurück bist:</strong>
+        Sobald Stripe + Supabase konfiguriert sind, kann Claude den End-to-End Test durchführen, Login-Seite auf simplymindo-Branding umbauen, zweite App einbauen, und Phase 2 (App-Generator) starten.
+      </div>
+    </div>
+  </div>
+
+  <!-- Kontext für neue Session -->
+  <div class="handover-block">
+    <h3>🗂️ Wichtige Dateien und Pfade</h3>
+    <ul class="file-list">
+      <li><span class="file-path">C:\Users\mail\simplymindo\</span><span class="file-note">Next.js Portal (Haupt-Projekt)</span></li>
+      <li><span class="file-path">C:\Users\mail\simplymindo\.env.local</span><span class="file-note">API-Keys — nie committen!</span></li>
+      <li><span class="file-path">C:\Users\mail\simplymindo\supabase-schema-simplymindo.sql</span><span class="file-note">SQL im Supabase-Editor ausführen</span></li>
+      <li><span class="file-path">C:\Users\mail\simplymindo\src\lib\apps\index.ts</span><span class="file-note">Alle App-Definitionen — hier neue Apps eintragen</span></li>
+      <li><span class="file-path">C:\Users\mail\simplymindo\src\app\dashboard\page.tsx</span><span class="file-note">Nutzer-Dashboard mit freigeschalteten Apps</span></li>
+      <li><span class="file-path">C:\Users\mail\simplymindo\src\app\app\[id]\page.tsx</span><span class="file-note">Einzelne App-Seite mit Zugangsprüfung</span></li>
+      <li><span class="file-path">C:\Users\mail\simplymindo\src\components\apps\AufgabenPlaner.tsx</span><span class="file-note">Erste App-Komponente</span></li>
+      <li><span class="file-path">C:\Users\mail\simplymindo\src\app\api\stripe\checkout\route.ts</span><span class="file-note">Checkout für alle 3 Pläne</span></li>
+      <li><span class="file-path">C:\Users\mail\simplymindo\src\app\api\webhook\route.ts</span><span class="file-note">Stripe-Webhook → Supabase</span></li>
+      <li><span class="file-path">C:\Users\mail\mindo-factory\</span><span class="file-note">Diese interne Roadmap-Webseite</span></li>
+      <li><span class="file-path">C:\Users\mail\Documents\Appiverse-OS-NEU\02 Projekte\simplymindo\</span><span class="file-note">Obsidian-Notizen zum Projekt</span></li>
+    </ul>
+  </div>
+
+  <!-- Kontext-Grid -->
+  <div class="handover-block">
+    <h3>🔑 Zugang & Kontext</h3>
+    <div class="context-grid">
+      <div class="context-card">
+        <h4>Supabase Projekt</h4>
+        <p>Aktuell geteilt mit lebenskompass (temporär). URL steht in .env.local. Für Launch: eigenes Projekt anlegen.</p>
+      </div>
+      <div class="context-card">
+        <h4>GitHub Repos</h4>
+        <p>Portal: <code>oechteli/simplymindo-portal</code><br>Roadmap: <code>oechteli/mindo-factory</code></p>
+      </div>
+      <div class="context-card">
+        <h4>Cloudflare</h4>
+        <p>Roadmap live: <code>simplymindo-roadmap.pages.dev</code><br>Portal: Projekt angelegt, noch nicht deployt</p>
+      </div>
+      <div class="context-card">
+        <h4>Stripe (Live-Keys)</h4>
+        <p>Produkte noch nicht angelegt. Keys stehen in .env.local. Webhook-URL nach Deploy eintragen.</p>
+      </div>
+      <div class="context-card">
+        <h4>Dev starten</h4>
+        <code>cd C:\Users\mail\simplymindo<br>npm run dev</code>
+        <p style="margin-top:6px;color:var(--text-muted);font-size:0.78rem;">Läuft auf localhost:3000</p>
+      </div>
+      <div class="context-card">
+        <h4>Claude weist an mit:</h4>
+        <p>"Mache weiter" oder "Was ist als nächstes?"<br>Claude liest den Stand hier und macht da weiter wo aufgehört wurde.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Gesamtstand -->
+  <div class="handover-block">
+    <h3>📊 Gesamtfortschritt Phase 1</h3>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px;">
+      <div style="text-align:center;background:var(--green-light);border-radius:8px;padding:14px;">
+        <div style="font-size:1.8rem;font-weight:800;color:#166534;">6</div>
+        <div style="font-size:0.78rem;color:#166534;">Claude fertig</div>
+      </div>
+      <div style="text-align:center;background:#fef3c7;border-radius:8px;padding:14px;">
+        <div style="font-size:1.8rem;font-weight:800;color:#92400e;">5</div>
+        <div style="font-size:0.78rem;color:#92400e;">Du bist dran</div>
+      </div>
+      <div style="text-align:center;background:var(--gray-light);border-radius:8px;padding:14px;">
+        <div style="font-size:1.8rem;font-weight:800;color:var(--text-muted);">∞</div>
+        <div style="font-size:0.78rem;color:var(--text-muted);">Phase 2 wartet</div>
+      </div>
+    </div>
+    <p style="font-size:0.85rem;color:var(--text-muted);">Phase 1 ist technisch nahezu vollständig. Nur noch manuelle Konfiguration (Supabase SQL, Stripe, Cloudflare) nötig — dann ist simplymindo bereit für echte Nutzer.</p>
+  </div>
+
+</div>
+</div>
+
+</body>
+</html>
