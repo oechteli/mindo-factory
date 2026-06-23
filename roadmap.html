@@ -7,92 +7,147 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<nav>
-  <div class="nav-inner">
-    <a href="index.html" class="logo">⚙️ mindo-factory</a>
-    <div class="nav-links">
-      <a href="index.html">Übersicht</a>
-      <a href="roadmap.html" class="active">Roadmap</a>
-      <a href="apps.html">Apps</a>
-      <a href="architektur.html">Architektur</a>
-    </div>
-  </div>
-</nav>
 
-<main>
-  <div class="page-title">
+<aside class="sidebar">
+  <div class="sidebar-logo">
+    <a href="index.html"><span class="logo-icon">⚙️</span><div><div class="logo-text">mindo-factory</div><div class="logo-sub">Internes Projekt-Dashboard</div></div></a>
+  </div>
+  <nav class="sidebar-nav">
+    <div class="nav-group">
+      <div class="nav-group-label">Start</div>
+      <a href="index.html"><span class="nav-icon">🏠</span> Übersicht</a>
+      <a href="status.html"><span class="nav-icon">📊</span> Aktueller Status <span class="nav-badge wip">Aktiv</span></a>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-label">Planung</div>
+      <a href="roadmap.html" class="active"><span class="nav-icon">📋</span> Roadmap</a>
+      <a href="apps.html"><span class="nav-icon">📱</span> Alle Apps</a>
+      <a href="preise.html"><span class="nav-icon">💰</span> Preismodell</a>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-label">Das System</div>
+      <a href="architektur.html"><span class="nav-icon">🏛️</span> Architektur</a>
+      <a href="produktion.html"><span class="nav-icon">🏭</span> App-Produktion</a>
+      <a href="marketing.html"><span class="nav-icon">🎬</span> Marketing & YouTube</a>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-label">Projekt-Info</div>
+      <a href="marke.html"><span class="nav-icon">🎨</span> Marke & Produkte</a>
+      <a href="techstack.html"><span class="nav-icon">🔧</span> Tech-Stack</a>
+    </div>
+  </nav>
+  <div class="sidebar-footer"><strong>Stand: Juni 2026</strong>Checkboxen werden von Claude automatisch aktualisiert.</div>
+</aside>
+
+<div class="page-wrap">
+<div class="page-content">
+
+  <div class="page-header">
     <h1>📋 Roadmap</h1>
-    <p>Alle Schritte zum fertigen System — was abgehakt ist, ist live oder fertig gebaut.</p>
+    <p>Alle Schritte von heute bis zum fertigen System. Checkboxen werden von Claude abgehakt — du musst nichts manuell aktualisieren.</p>
+    <span class="updated">🤖 Claude hakt Checkboxen automatisch ab</span>
   </div>
 
   <!-- Phase 0 -->
-  <div class="roadmap-phase">
-    <h2><span>✅</span> Phase 0 — Vorbereitung</h2>
-    <ul class="task-list">
-      <li class="done"><span class="cb">☑️</span><div class="task-text"><strong>Lebenskompass als Basis kopiert</strong><span>Next.js 14, Supabase Auth, Stripe, Claude Haiku — alles schon drin</span></div></li>
-      <li class="done"><span class="cb">☑️</span><div class="task-text"><strong>package.json auf "simplymindo" umbenannt</strong></div></li>
-      <li class="done"><span class="cb">☑️</span><div class="task-text"><strong>.env.local mit allen Keys befüllt</strong><span>Supabase, Stripe, Anthropic, Google OAuth</span></div></li>
-      <li class="done"><span class="cb">☑️</span><div class="task-text"><strong>App-Konfigurationssystem angelegt</strong><span>src/lib/apps/index.ts — jede App = eine Konfigdatei</span></div></li>
+  <div class="phase">
+    <div class="phase-header">
+      <h2>Phase 0 — Vorbereitung</h2>
+      <span class="phase-tag done">✅ Abgeschlossen</span>
+    </div>
+    <p style="font-size:0.875rem;color:var(--text-muted);margin-bottom:14px;">Nicht von null anfangen — lebenskompass hat schon alles was wir brauchen. Wir kopieren, umbenennen, anpassen.</p>
+    <ul class="tasks">
+      <li class="task done"><input type="checkbox" checked disabled><div class="task-body"><strong>lebenskompass nach simplymindo kopieren</strong><span>cp -r C:\Users\mail\lebenskompass C:\Users\mail\simplymindo — Original unangetastet</span></div></li>
+      <li class="task done"><input type="checkbox" checked disabled><div class="task-body"><strong>package.json: Name auf "simplymindo"</strong></div></li>
+      <li class="task done"><input type="checkbox" checked disabled><div class="task-body"><strong>.env.local: Credentials eintragen</strong><span>Supabase URL + Keys, Anthropic API Key, Stripe Keys</span></div></li>
+      <li class="task done"><input type="checkbox" checked disabled><div class="task-body"><strong>App-Konfigurationssystem anlegen</strong><span>src/lib/apps/index.ts — AppConfig-Typ, APPS-Array, PLANS-Objekt</span></div></li>
+      <li class="task done"><input type="checkbox" checked disabled><div class="task-body"><strong>Startseite → App-Marktplatz</strong><span>Neues Layout mit App-Karten, Preisübersicht, violettem simplymindo-Branding</span></div></li>
     </ul>
   </div>
 
   <!-- Phase 1 -->
-  <div class="roadmap-phase">
-    <h2><span>🔨</span> Phase 1 — Sockel (aktiv)</h2>
-    <ul class="task-list">
-      <li class="done"><span class="cb">☑️</span><div class="task-text"><strong>Startseite → App-Marktplatz</strong><span>Alle Apps als Karten mit Preis, Kategorie, "Bald"-Badge</span></div></li>
-      <li><span class="cb">⬜</span><div class="task-text"><strong>Supabase-Schema anpassen</strong><span>user_apps Tabelle (welcher User hat welche Apps gekauft)</span></div></li>
-      <li><span class="cb">⬜</span><div class="task-text"><strong>Dashboard → freigeschaltete Apps anzeigen</strong><span>Nach Login sieht man nur die eigenen gekauften Apps</span></div></li>
-      <li><span class="cb">⬜</span><div class="task-text"><strong>3 Stripe-Produkte anlegen</strong><span>Einzeln 1,99 € / Flex 7,99 € / Unlimited 14,99 € — Price-IDs in .env.local</span></div></li>
-      <li><span class="cb">⬜</span><div class="task-text"><strong>Stripe-Checkout für alle 3 Pläne verdrahten</strong></div></li>
-      <li><span class="cb">⬜</span><div class="task-text"><strong>Erste App einbinden: Aufgaben-Planer</strong><span>Fertiges HTML aus familien-dashboard als simplymindo-App verpacken</span></div></li>
-      <li><span class="cb">⬜</span><div class="task-text"><strong>GitHub-Repo anlegen (oechteli/simplymindo)</strong></div></li>
-      <li><span class="cb">⬜</span><div class="task-text"><strong>Deploy auf Cloudflare Pages</strong></div></li>
+  <div class="phase">
+    <div class="phase-header">
+      <h2>Phase 1 — Sockel</h2>
+      <span class="phase-tag active">🔨 Aktiv</span>
+    </div>
+    <p style="font-size:0.875rem;color:var(--text-muted);margin-bottom:14px;">Das Fundament fertigbauen: Nutzer können sich anmelden, Apps kaufen, und die erste App nutzen.</p>
+    <ul class="tasks">
+      <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>Supabase-Schema anpassen</strong><span>Neue Tabelle user_apps (id, user_id, app_id, plan, purchased_at) mit RLS</span></div></li>
+      <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>Dashboard umbauen</strong><span>src/app/dashboard/page.tsx: freigeschaltete Apps als Karten statt Lebenskompass-Bereiche</span></div></li>
+      <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>App-Seite erstellen</strong><span>src/app/app/[id]/page.tsx: lädt App-Konfiguration und zeigt die richtige UI-Komponente</span></div></li>
+      <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>Stripe: 3 Produkte anlegen (manuell im Dashboard)</strong><span>Einzeln 1,99 € einmalig / Flex 7,99 €/Mo / Unlimited 14,99 €/Mo</span></div></li>
+      <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>Price-IDs in .env.local eintragen</strong><span>STRIPE_PRICE_ID_EINZELN, STRIPE_PRICE_ID_FLEX, STRIPE_PRICE_ID_UNLIMITED</span></div></li>
+      <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>Checkout-API-Route für alle 3 Pläne</strong><span>src/app/api/stripe/checkout/route.ts anpassen</span></div></li>
+      <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>Webhook: App nach Kauf freischalten</strong><span>Nach checkout.session.completed → user_apps-Eintrag anlegen</span></div></li>
+      <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>Erste App einbinden: Aufgaben-Planer</strong><span>familien-dashboard/aufgaben2.html als React-Komponente in simplymindo</span></div></li>
+      <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>End-to-End Test</strong><span>Registrieren → App kaufen → App freischalten → App nutzen</span></div></li>
+      <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>GitHub-Repo: oechteli/simplymindo</strong></div></li>
+      <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>Cloudflare Pages Deploy</strong><span>Framework: Next.js, Build: npm run build, alle .env-Variablen eintragen</span></div></li>
     </ul>
   </div>
 
   <!-- Phase 2 -->
-  <div class="roadmap-phase">
-    <h2><span>🤖</span> Phase 2 — App-Generator</h2>
-    <ul class="task-list">
-      <li><span class="cb">⬜</span><div class="task-text"><strong>Komponenten-Bibliothek aufbauen</strong><span>5–10 wiederverwendbare UI-Bausteine: Chat, Formular, Ergebnis-Card, Tracker, Kalender</span></div></li>
-      <li><span class="cb">⬜</span><div class="task-text"><strong>App-Generator-Prompt schreiben</strong><span>Claude-Prompt der aus einer Idee (1 Satz) eine vollständige App-Konfiguration erzeugt</span></div></li>
-      <li><span class="cb">⬜</span><div class="task-text"><strong>Generator-UI bauen (Admin-Seite)</strong><span>Eingabefeld für App-Idee → "Generieren" → fertige App erscheint im Marktplatz</span></div></li>
-      <li><span class="cb">⬜</span><div class="task-text"><strong>Erste automatisch generierte App</strong><span>Ziel: neue App in unter 30 Minuten, nicht Stunden</span></div></li>
-      <li><span class="cb">⬜</span><div class="task-text"><strong>10 Apps im Marktplatz</strong></div></li>
+  <div class="phase">
+    <div class="phase-header">
+      <h2>Phase 2 — App-Generator</h2>
+      <span class="phase-tag planned">📋 Geplant</span>
+    </div>
+    <p style="font-size:0.875rem;color:var(--text-muted);margin-bottom:14px;">Den Prozess automatisieren: nicht mehr jede App manuell bauen, sondern eine Maschine bauen die Apps produziert.</p>
+    <ul class="tasks">
+      <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>Komponenten-Bibliothek aufbauen</strong><span>5–10 wiederverwendbare UI-Bausteine: ChatUI, FormUI, ResultCard, TrackerUI, CalendarUI</span></div></li>
+      <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>App-Generator-Prompt schreiben</strong><span>Claude-Prompt: aus 1 Satz → vollständige AppConfig (id, name, icon, description, price, category, prompt)</span></div></li>
+      <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>Admin-Seite: App-Generator</strong><span>Nur für Admins sichtbar. Eingabe: App-Idee. Output: Konfigdatei + Vorschau</span></div></li>
+      <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>Erste automatisch generierte App</strong><span>Ziel: neue App in &lt;30 Minuten. Test mit Einkaufslisten-Optimierer</span></div></li>
+      <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>10 Apps im Marktplatz</strong></div></li>
+      <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>App-Preview vor Kauf</strong><span>Kunden sehen wie die App aussieht bevor sie kaufen</span></div></li>
+      <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>Flex-Plan: App-Auswahl-UI</strong><span>Nutzer wählt welche 5 Apps er im Flex-Plan haben möchte</span></div></li>
     </ul>
   </div>
 
   <!-- Phase 3 -->
-  <div class="roadmap-phase">
-    <h2><span>🎬</span> Phase 3 — Marketing-Maschine</h2>
-    <ul class="task-list">
-      <li><span class="cb">⬜</span><div class="task-text"><strong>YouTube-Kanal anlegen</strong><span>simplymindo oder passendem Kanal-Namen</span></div></li>
-      <li><span class="cb">⬜</span><div class="task-text"><strong>Video-Vorlage definieren</strong><span>Aufbau: Problem → App-Demo → CTA — für jede App gleich</span></div></li>
-      <li><span class="cb">⬜</span><div class="task-text"><strong>Skript-Generator-Prompt</strong><span>Claude schreibt Video-Skript aus App-Beschreibung</span></div></li>
-      <li><span class="cb">⬜</span><div class="task-text"><strong>Bilder-Pipeline (Higgsfield/Midjourney)</strong><span>Szenenbilder für Screencasts automatisch generieren</span></div></li>
-      <li><span class="cb">⬜</span><div class="task-text"><strong>Voiceover-Pipeline</strong><span>Text-to-Speech für deutsche Erklärungen</span></div></li>
-      <li><span class="cb">⬜</span><div class="task-text"><strong>Erstes vollständig automatisches Video</strong></div></li>
-      <li><span class="cb">⬜</span><div class="task-text"><strong>1 Video pro App (27+ Videos)</strong></div></li>
+  <div class="phase">
+    <div class="phase-header">
+      <h2>Phase 3 — Marketing-Maschine</h2>
+      <span class="phase-tag planned">📋 Geplant</span>
+    </div>
+    <p style="font-size:0.875rem;color:var(--text-muted);margin-bottom:14px;">Jede neue App bekommt automatisch ein YouTube-Video — der Haupt-Kanal für Neukunden.</p>
+    <ul class="tasks">
+      <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>YouTube-Kanal anlegen</strong><span>Name und Branding für simplymindo festlegen</span></div></li>
+      <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>Video-Vorlage definieren</strong><span>Festes Format: 60–90 Sek. Problem → App-Demo → Ergebnis → CTA</span></div></li>
+      <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>Skript-Generator-Prompt</strong><span>Claude schreibt aus App-Beschreibung ein vollständiges Video-Skript</span></div></li>
+      <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>Bild-Pipeline</strong><span>Higgsfield oder Midjourney: Szenenbilder pro Skript-Abschnitt</span></div></li>
+      <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>Voiceover-Pipeline</strong><span>ElevenLabs oder Azure TTS: deutschen Kommentar generieren</span></div></li>
+      <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>Video-Montage (Remotion oder CapCut)</strong><span>Bilder + Voiceover + Untertitel + Logo → fertiges MP4</span></div></li>
+      <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>YouTube-Upload automatisieren</strong><span>YouTube Data API: Upload mit Titel, Beschreibung, Tags, Thumbnail</span></div></li>
+      <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>Erstes vollautomatisches Video live</strong></div></li>
+      <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>Video-Pipeline für alle bestehenden Apps nachholen</strong></div></li>
     </ul>
   </div>
 
   <!-- Phase 4 -->
-  <div class="roadmap-phase">
-    <h2><span>🚀</span> Phase 4 — Skalierung</h2>
-    <ul class="task-list">
-      <li><span class="cb">⬜</span><div class="task-text"><strong>27+ Apps im Marktplatz</strong></div></li>
-      <li><span class="cb">⬜</span><div class="task-text"><strong>Community-Bereich (Unlimited-Plan)</strong></div></li>
-      <li><span class="cb">⬜</span><div class="task-text"><strong>Affiliate-Programm</strong><span>Andere können simplymindo empfehlen und verdienen</span></div></li>
-      <li><span class="cb">⬜</span><div class="task-text"><strong>B2B-Lizenzen</strong><span>Firmen kaufen Pakete für ihre Mitarbeiter</span></div></li>
-      <li><span class="cb">⬜</span><div class="task-text"><strong>Eigene Domain simplymindo.de sichern</strong></div></li>
-      <li><span class="cb">⬜</span><div class="task-text"><strong>Neues Supabase-Projekt (Trennung von lebenskompass)</strong></div></li>
+  <div class="phase">
+    <div class="phase-header">
+      <h2>Phase 4 — Skalierung</h2>
+      <span class="phase-tag planned">📋 Geplant</span>
+    </div>
+    <p style="font-size:0.875rem;color:var(--text-muted);margin-bottom:14px;">Das System wächst: mehr Apps, mehr Kanäle, mehr Umsatz — mit immer weniger manuellem Aufwand.</p>
+    <ul class="tasks">
+      <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>27+ Apps im Marktplatz</strong></div></li>
+      <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>Community-Bereich (Unlimited)</strong><span>Forum oder Discord für Unlimited-Nutzer</span></div></li>
+      <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>Bewertungen & Reviews</strong><span>Nutzer können Apps bewerten — sozialer Beweis für neue Kunden</span></div></li>
+      <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>Affiliate-Programm</strong><span>Andere empfehlen simplymindo und erhalten % vom Verkauf</span></div></li>
+      <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>B2B-Lizenzen</strong><span>Firmen kaufen Pakete für ihre Mitarbeiter</span></div></li>
+      <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>Domain simplymindo.de sichern und einrichten</strong></div></li>
+      <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>Eigenes Supabase-Projekt für simplymindo</strong><span>Trennung von lebenskompass-Datenbank</span></div></li>
+      <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>SEO-Optimierung</strong><span>Jede App bekommt eine eigene Landingpage mit Keywords</span></div></li>
     </ul>
   </div>
-</main>
 
-<footer>
-  <p>© 2026 mindo-factory · intern · <a href="https://simplymindo.de">simplymindo.de</a></p>
+</div>
+<footer class="page-footer">
+  <span>© 2026 mindo-factory · Internes Dashboard</span>
+  <a href="https://github.com/oechteli/mindo-factory" target="_blank">GitHub →</a>
 </footer>
+</div>
 </body>
 </html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>mindo-factory · Preismodell</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<aside class="sidebar">
+  <div class="sidebar-logo">
+    <a href="index.html">
+      <span class="logo-icon">⚙️</span>
+      <div>
+        <div class="logo-text">mindo-factory</div>
+        <div class="logo-sub">Internes Projekt-Dashboard</div>
+      </div>
+    </a>
+  </div>
+  <nav class="sidebar-nav">
+    <div class="nav-group">
+      <div class="nav-group-label">Start</div>
+      <a href="index.html"><span class="nav-icon">🏠</span> Übersicht</a>
+      <a href="status.html"><span class="nav-icon">📊</span> Aktueller Status <span class="nav-badge wip">Aktiv</span></a>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-label">Planung</div>
+      <a href="roadmap.html"><span class="nav-icon">📋</span> Roadmap</a>
+      <a href="apps.html"><span class="nav-icon">📱</span> Alle Apps</a>
+      <a href="preise.html" class="active"><span class="nav-icon">💰</span> Preismodell</a>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-label">Das System</div>
+      <a href="architektur.html"><span class="nav-icon">🏛️</span> Architektur</a>
+      <a href="produktion.html"><span class="nav-icon">🏭</span> App-Produktion</a>
+      <a href="marketing.html"><span class="nav-icon">🎬</span> Marketing & YouTube</a>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-label">Projekt-Info</div>
+      <a href="marke.html"><span class="nav-icon">🎨</span> Marke & Produkte</a>
+      <a href="techstack.html"><span class="nav-icon">🔧</span> Tech-Stack</a>
+    </div>
+  </nav>
+  <div class="sidebar-footer">
+    <strong>Stand: Juni 2026</strong>
+    Checkboxen werden von Claude automatisch aktualisiert.
+  </div>
+</aside>
+
+<div class="page-wrap">
+<div class="page-content">
+
+  <div class="page-header">
+    <h1>💰 Preismodell</h1>
+    <p>Was Kunden bezahlen, wie die drei Pläne funktionieren, und warum dieses Modell für Kunden und für uns fair ist.</p>
+  </div>
+
+  <!-- Die 3 Pläne -->
+  <div class="section">
+    <h2>📦 Die drei Pläne</h2>
+    <div class="price-grid">
+
+      <div class="price-card">
+        <div class="price-name">Einzeln</div>
+        <div class="price-amount">1,99 €<span> einmalig</span></div>
+        <div class="price-desc">Eine einzige App kaufen — für immer, ohne Abo.</div>
+        <ul class="price-features">
+          <li>1 App dauerhaft freigeschaltet</li>
+          <li>Alle KI-Funktionen der App</li>
+          <li>Updates inklusive</li>
+          <li>Kein Abo, keine Verlängerung</li>
+          <li>Auf allen Geräten nutzbar</li>
+        </ul>
+      </div>
+
+      <div class="price-card featured">
+        <div class="price-badge">⭐ Beliebteste Wahl</div>
+        <div class="price-name">Flex</div>
+        <div class="price-amount">7,99 €<span>/Monat</span></div>
+        <div class="price-desc">5 Apps frei wählbar — jeden Monat neu entscheiden.</div>
+        <ul class="price-features">
+          <li>5 Apps gleichzeitig aktiv</li>
+          <li>Apps monatlich wechselbar</li>
+          <li>Alle KI-Funktionen</li>
+          <li>Neue Apps sofort nutzbar</li>
+          <li>Jederzeit kündbar</li>
+        </ul>
+      </div>
+
+      <div class="price-card">
+        <div class="price-name">Unlimited</div>
+        <div class="price-amount">14,99 €<span>/Monat</span></div>
+        <div class="price-desc">Alle Apps + Community-Zugang — für echte Power-User.</div>
+        <ul class="price-features">
+          <li>Alle 27+ Apps freigeschaltet</li>
+          <li>Jede neue App sofort verfügbar</li>
+          <li>Community-Bereich (geplant)</li>
+          <li>Früher Zugang zu Beta-Apps</li>
+          <li>Prioritäts-Support</li>
+          <li>Jederzeit kündbar</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Vergleichstabelle -->
+  <div class="section">
+    <h2>🔍 Detaillierter Vergleich</h2>
+    <div class="card" style="padding:0;overflow:hidden;">
+      <table>
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Einzeln (1,99 €)</th>
+            <th>Flex (7,99 €/Mo)</th>
+            <th>Unlimited (14,99 €/Mo)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Freigeschaltete Apps</td><td>1</td><td>5 (wählbar)</td><td>Alle</td></tr>
+          <tr><td>Apps wechseln</td><td>—</td><td>✓ monatlich</td><td>✓ immer</td></tr>
+          <tr><td>Neue Apps sofort</td><td>—</td><td>✓ (zählt zu 5)</td><td>✓ automatisch</td></tr>
+          <tr><td>KI-Nutzung</td><td>✓ voll</td><td>✓ voll</td><td>✓ voll</td></tr>
+          <tr><td>Community</td><td>—</td><td>—</td><td>✓ (geplant)</td></tr>
+          <tr><td>Beta-Apps</td><td>—</td><td>—</td><td>✓ Early Access</td></tr>
+          <tr><td>Kündigung</td><td>Kein Abo</td><td>Jederzeit</td><td>Jederzeit</td></tr>
+          <tr><td>Abrechnung</td><td>Einmalig</td><td>Monatlich</td><td>Monatlich</td></tr>
+          <tr><td>Bezahlung</td><td colspan="3">Kreditkarte, SEPA, PayPal (via Stripe)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Für wen ist was? -->
+  <div class="section">
+    <h2>👤 Für wen ist welcher Plan?</h2>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-icon">🧪</div>
+        <h3>Einzeln — für Ausprobier-Typen</h3>
+        <p>Jemand hat ein konkretes Problem (z.B. Einkaufsliste sortieren) und will genau diese eine App. Kein Abo-Risiko. Günstigster Einstieg. Gut als Conversion-Einstieg — viele werden danach aufrüsten.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">⚡</div>
+        <h3>Flex — für den normalen Alltags-Nutzer</h3>
+        <p>Jemand nutzt regelmäßig mehrere Apps. Der Flex-Plan ist bei 4 Apps bereits günstiger als 4× Einzelkauf (7,96 € vs. 7,99 €). Wechselbarkeit macht ihn attraktiver als Einzelkauf für Vielnutzer.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🚀</div>
+        <h3>Unlimited — für Power-User und Familien</h3>
+        <p>Wer viele verschiedene Bereiche im Alltag optimieren will. Auch ideal für Familien, die gemeinsam mehrere Apps nutzen. Bei 8+ Apps rechnet sich Unlimited gegenüber Flex.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Warum diese Preise? -->
+  <div class="section">
+    <h2>🧮 Warum genau diese Preise?</h2>
+    <div class="card">
+      <h3>Der "Kaffee-Test"</h3>
+      <p style="margin:8px 0 16px">1,99 € = ein Kaffee. Der psychologische Einstiegspreis senkt die Hemmschwelle drastisch. Kunden kaufen eher impulsiv, wenn der Preis unter 2 € liegt. Das ist eine bewusste Entscheidung.</p>
+      <h3>Flex-Preis: optimiert für Conversion</h3>
+      <p style="margin:8px 0 16px">7,99 € liegt psychologisch weit unter 10 €. Bei 5 Apps sind das 1,60 € pro App — günstiger als Einzelkauf. Der "Ich spare" Effekt macht das Abo attraktiv.</p>
+      <h3>Unlimited: klare Wertproposition</h3>
+      <p style="margin:8px 0">14,99 € = knapp unter 15 €. Für jemanden der 10 Apps nutzt, sind das 1,50 € pro App. Kein Nachdenken mehr welche 5 ich wähle — einfach alles haben.</p>
+    </div>
+  </div>
+
+  <!-- Umsatz-Szenarien -->
+  <div class="section">
+    <h2>📈 Umsatz-Szenarien</h2>
+    <div class="info-box">
+      <strong>Hinweis:</strong> Diese Zahlen sind Planungs-Szenarien, keine Garantien. Sie helfen uns zu verstehen, welche Nutzerzahl wir brauchen, um welches Ziel zu erreichen.
+    </div>
+    <div class="card" style="padding:0;overflow:hidden;">
+      <table>
+        <thead>
+          <tr>
+            <th>Szenario</th>
+            <th>Einzeln-Käufer</th>
+            <th>Flex-Abos</th>
+            <th>Unlimited-Abos</th>
+            <th>Monatlicher Umsatz</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Start</strong></td><td>50</td><td>20</td><td>5</td><td>~330 €</td></tr>
+          <tr><td><strong>Wachstum</strong></td><td>200</td><td>100</td><td>30</td><td>~1.647 €</td></tr>
+          <tr><td><strong>Ziel</strong></td><td>500</td><td>300</td><td>100</td><td>~4.894 €</td></tr>
+          <tr><td><strong>Scale</strong></td><td>1.000</td><td>800</td><td>300</td><td>~11.367 €</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:0.8rem;color:var(--text-muted);margin-top:8px;">* Einzeln-Käufer zählen nur einmalig. Recurring Revenue (wiederkehrend) kommt von Flex + Unlimited.</p>
+  </div>
+
+  <!-- Stripe-Setup -->
+  <div class="section">
+    <h2>🔧 Stripe-Setup (technisch)</h2>
+    <ul class="tasks">
+      <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>Produkt "simplymindo Einzeln" anlegen</strong><span>Einmalig, 1,99 € → Price-ID in .env.local: STRIPE_PRICE_ID_EINZELN</span></div></li>
+      <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>Produkt "simplymindo Flex" anlegen</strong><span>Monatlich, 7,99 € → Price-ID: STRIPE_PRICE_ID_FLEX</span></div></li>
+      <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>Produkt "simplymindo Unlimited" anlegen</strong><span>Monatlich, 14,99 € → Price-ID: STRIPE_PRICE_ID_UNLIMITED</span></div></li>
+      <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>Webhook konfigurieren</strong><span>Events: checkout.session.completed, subscription.updated, subscription.deleted</span></div></li>
+      <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>Checkout-Flow für alle 3 Pläne testen</strong></div></li>
+    </ul>
+  </div>
+
+</div>
+<footer class="page-footer">
+  <span>© 2026 mindo-factory · Internes Dashboard</span>
+  <a href="https://github.com/oechteli/mindo-factory" target="_blank">GitHub →</a>
+</footer>
+</div>
+</body>
+</html>

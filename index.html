@@ -7,123 +7,187 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<nav>
-  <div class="nav-inner">
-    <a href="index.html" class="logo">⚙️ mindo-factory</a>
-    <div class="nav-links">
-      <a href="index.html" class="active">Übersicht</a>
-      <a href="roadmap.html">Roadmap</a>
-      <a href="apps.html">Apps</a>
-      <a href="architektur.html">Architektur</a>
+
+<aside class="sidebar">
+  <div class="sidebar-logo">
+    <a href="index.html">
+      <span class="logo-icon">⚙️</span>
+      <div>
+        <div class="logo-text">mindo-factory</div>
+        <div class="logo-sub">Internes Projekt-Dashboard</div>
+      </div>
+    </a>
+  </div>
+  <nav class="sidebar-nav">
+    <div class="nav-group">
+      <div class="nav-group-label">Start</div>
+      <a href="index.html" class="active"><span class="nav-icon">🏠</span> Übersicht</a>
+      <a href="status.html"><span class="nav-icon">📊</span> Aktueller Status <span class="nav-badge wip">Aktiv</span></a>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-label">Planung</div>
+      <a href="roadmap.html"><span class="nav-icon">📋</span> Roadmap</a>
+      <a href="apps.html"><span class="nav-icon">📱</span> Alle Apps</a>
+      <a href="preise.html"><span class="nav-icon">💰</span> Preismodell</a>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-label">Das System</div>
+      <a href="architektur.html"><span class="nav-icon">🏛️</span> Architektur</a>
+      <a href="produktion.html"><span class="nav-icon">🏭</span> App-Produktion</a>
+      <a href="marketing.html"><span class="nav-icon">🎬</span> Marketing & YouTube</a>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-label">Projekt-Info</div>
+      <a href="marke.html"><span class="nav-icon">🎨</span> Marke & Produkte</a>
+      <a href="techstack.html"><span class="nav-icon">🔧</span> Tech-Stack</a>
+    </div>
+  </nav>
+  <div class="sidebar-footer">
+    <strong>Stand: Juni 2026</strong>
+    Checkboxen werden von Claude automatisch aktualisiert.
+  </div>
+</aside>
+
+<div class="page-wrap">
+<div class="page-content">
+
+  <div class="page-header">
+    <h1>🏠 Willkommen in der mindo-factory</h1>
+    <p>Das interne Dashboard für den Aufbau von simplymindo — einer Plattform mit 27+ KI-Mini-Apps und einer vollautomatischen Produktionsmaschine.</p>
+    <span class="updated">🤖 Checkboxen werden von Claude automatisch aktualisiert</span>
+  </div>
+
+  <!-- Stats -->
+  <div class="stat-grid">
+    <div class="stat-card highlight">
+      <div class="stat-num">1</div>
+      <div class="stat-label">App live</div>
+      <div class="stat-sub">Aufgaben-Planer</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">4</div>
+      <div class="stat-label">Phasen gesamt</div>
+      <div class="stat-sub">Phase 1 aktiv</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">27+</div>
+      <div class="stat-label">Geplante Apps</div>
+      <div class="stat-sub">6 Kategorien</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">0</div>
+      <div class="stat-label">YouTube-Videos</div>
+      <div class="stat-sub">Ziel: 1 pro App</div>
     </div>
   </div>
-</nav>
 
-<main>
-  <section class="hero">
-    <h1>Die simplymindo App-Fabrik</h1>
-    <p class="subtitle">Ein System, das neue KI-Mini-Apps produziert — inklusive Marketing, YouTube-Videos und Verkauf.</p>
-  </section>
-
-  <!-- Fortschritts-Banner -->
-  <section class="progress-section">
-    <div class="progress-grid">
-      <div class="progress-card done">
-        <div class="progress-num">1</div>
-        <div class="progress-label">App live</div>
-        <div class="progress-sub">Aufgaben-Planer</div>
-      </div>
-      <div class="progress-card wip">
-        <div class="progress-num">3</div>
-        <div class="progress-label">In Arbeit</div>
-        <div class="progress-sub">Sockel, Dashboard, Marktplatz</div>
-      </div>
-      <div class="progress-card planned">
-        <div class="progress-num">27+</div>
-        <div class="progress-label">Geplante Apps</div>
-        <div class="progress-sub">Aus 6 Kategorien</div>
-      </div>
-      <div class="progress-card planned">
-        <div class="progress-num">0</div>
-        <div class="progress-label">YouTube-Videos</div>
-        <div class="progress-sub">Geplant: 1 pro App</div>
-      </div>
+  <!-- Was ist das? -->
+  <div class="section">
+    <h2>🎯 Was ist die mindo-factory?</h2>
+    <div class="info-box">
+      <strong>Das Ziel in einem Satz:</strong> Ein System bauen, das kontinuierlich neue KI-Mini-Apps produziert, vermarktet und verkauft — mit immer weniger manuellem Aufwand.
     </div>
-  </section>
-
-  <!-- Was ist die Fabrik? -->
-  <section class="card-section">
-    <h2>Was ist die mindo-factory?</h2>
-    <div class="explain-grid">
-      <div class="explain-card">
-        <div class="explain-icon">🏗️</div>
-        <h3>Der Sockel</h3>
-        <p>Ein fertiges Grundgerüst aus Login, Zahlung und KI-Anbindung. Jede neue App braucht nur noch ihren Inhalt — der Rest ist bereits gebaut.</p>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-icon">🛒</div>
+        <h3>simplymindo — der Marktplatz</h3>
+        <p>Die Kunden-Seite. Nutzer kaufen dort einzelne KI-Apps (1,99 €) oder ein Paket (bis 14,99 €/Monat). Jede App löst ein konkretes Alltags-Problem in 5 Minuten.</p>
       </div>
-      <div class="explain-card">
-        <div class="explain-icon">🤖</div>
+      <div class="card">
+        <div class="card-icon">🏭</div>
         <h3>Der App-Generator</h3>
-        <p>Eine KI beschreibt die neue App, wählt passende Bausteine aus und erstellt in Minuten eine fertige Mini-App — ohne Programmieren.</p>
+        <p>Das Herzstück der Fabrik. KI erzeugt auf Knopfdruck eine vollständige neue App: Konfiguration, Prompt, UI-Baustein. Ziel: neue App in unter 30 Minuten.</p>
       </div>
-      <div class="explain-card">
-        <div class="explain-icon">🎬</div>
+      <div class="card">
+        <div class="card-icon">🎬</div>
         <h3>Die Marketing-Maschine</h3>
-        <p>Zu jeder App wird automatisch ein YouTube-Video produziert: Skript → KI-Bilder → Voiceover → Upload. Einmal eingerichtet, läuft es von selbst.</p>
+        <p>Zu jeder App wird automatisch ein YouTube-Video produziert: Skript → Bilder → Voiceover → Upload. Keine manuelle Videobearbeitung nötig.</p>
       </div>
-      <div class="explain-card">
-        <div class="explain-icon">🛒</div>
-        <h3>Der Marktplatz</h3>
-        <p>Kunden kaufen einzelne Apps (1,99 €) oder ein Paket (Flex 7,99 € / Unlimited 14,99 €). Alles über Stripe — automatisch abgerechnet.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Phasen-Übersicht -->
-  <section class="card-section">
-    <h2>Wo stehen wir gerade?</h2>
-    <div class="phase-overview">
-      <div class="phase-row done">
-        <span class="phase-badge done">✅ Erledigt</span>
-        <div>
-          <strong>Phase 0 — Vorbereitung</strong>
-          <p>Lebenskompass als Basis kopiert, Keys eingetragen, Projektstruktur angelegt.</p>
-        </div>
-      </div>
-      <div class="phase-row active">
-        <span class="phase-badge active">🔨 Aktiv</span>
-        <div>
-          <strong>Phase 1 — Sockel</strong>
-          <p>Marktplatz-Startseite, Dashboard, App-Konfigurationssystem, erste App (Aufgaben-Planer) einbinden.</p>
-        </div>
-      </div>
-      <div class="phase-row planned">
-        <span class="phase-badge planned">📋 Geplant</span>
-        <div>
-          <strong>Phase 2 — App-Generator</strong>
-          <p>KI generiert neue Apps auf Knopfdruck: Konfigdatei + Prompt + UI-Bausteine automatisch.</p>
-        </div>
-      </div>
-      <div class="phase-row planned">
-        <span class="phase-badge planned">📋 Geplant</span>
-        <div>
-          <strong>Phase 3 — Marketing-Maschine</strong>
-          <p>YouTube-Video-Produktion automatisieren: Skript → Bilder → Voiceover → Upload.</p>
-        </div>
-      </div>
-      <div class="phase-row planned">
-        <span class="phase-badge planned">📋 Geplant</span>
-        <div>
-          <strong>Phase 4 — Skalierung</strong>
-          <p>27+ Apps im Marktplatz, Community, Affiliate-Programm, B2B-Lizenzen.</p>
-        </div>
+      <div class="card">
+        <div class="card-icon">🔄</div>
+        <h3>Der Kreislauf</h3>
+        <p>YouTube bringt Besucher → Besucher kaufen Apps → Einnahmen finanzieren neue Apps → neue Apps bringen neue Videos → mehr Besucher. Ein sich selbst verstärkender Kreislauf.</p>
       </div>
     </div>
-    <a href="roadmap.html" class="btn">Vollständige Roadmap →</a>
-  </section>
-</main>
+  </div>
 
-<footer>
-  <p>© 2026 mindo-factory · intern · <a href="https://simplymindo.de">simplymindo.de</a></p>
+  <!-- Phasen-Überblick -->
+  <div class="section">
+    <h2>📍 Wo stehen wir?</h2>
+
+    <div class="phase">
+      <div class="phase-header">
+        <h2>Phase 0 — Vorbereitung</h2>
+        <span class="phase-tag done">✅ Abgeschlossen</span>
+      </div>
+      <ul class="tasks">
+        <li class="task done"><input type="checkbox" checked disabled><div class="task-body"><strong>Basis-Projekt (lebenskompass) kopiert</strong><span>Next.js 14, Supabase, Stripe, Claude Haiku — alles bereits vorhanden</span></div></li>
+        <li class="task done"><input type="checkbox" checked disabled><div class="task-body"><strong>Projektname auf "simplymindo" gesetzt</strong></div></li>
+        <li class="task done"><input type="checkbox" checked disabled><div class="task-body"><strong>Keys und Credentials eingetragen</strong><span>Supabase, Stripe, Anthropic API</span></div></li>
+        <li class="task done"><input type="checkbox" checked disabled><div class="task-body"><strong>App-Konfigurationssystem angelegt</strong><span>src/lib/apps/index.ts — jede App = eine Konfigdatei</span></div></li>
+        <li class="task done"><input type="checkbox" checked disabled><div class="task-body"><strong>Startseite auf Marktplatz umgebaut</strong><span>Violettes Design, App-Karten, Preisübersicht</span></div></li>
+      </ul>
+    </div>
+
+    <div class="phase">
+      <div class="phase-header">
+        <h2>Phase 1 — Sockel</h2>
+        <span class="phase-tag active">🔨 Aktiv</span>
+      </div>
+      <ul class="tasks">
+        <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>Supabase-Schema für simplymindo anlegen</strong><span>Tabelle user_apps: welcher Nutzer hat welche Apps gekauft</span></div></li>
+        <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>Dashboard umbauen</strong><span>Nach Login: freigeschaltete Apps anzeigen, nicht Lebenskompass-Bereiche</span></div></li>
+        <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>3 Stripe-Produkte anlegen</strong><span>Einzeln 1,99 € / Flex 7,99 € / Unlimited 14,99 €</span></div></li>
+        <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>Stripe-Checkout für alle 3 Pläne</strong></div></li>
+        <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>Erste App: Aufgaben-Planer einbinden</strong><span>Fertiges HTML aus familien-dashboard als simplymindo-App verpacken</span></div></li>
+        <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>GitHub-Repo + Cloudflare Deploy</strong><span>oechteli/simplymindo → Cloudflare Pages</span></div></li>
+      </ul>
+    </div>
+
+    <div class="phase">
+      <div class="phase-header">
+        <h2>Phase 2 — App-Generator</h2>
+        <span class="phase-tag planned">📋 Geplant</span>
+      </div>
+      <ul class="tasks">
+        <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>Komponenten-Bibliothek</strong><span>5–10 wiederverwendbare UI-Bausteine</span></div></li>
+        <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>KI-Generator-Prompt</strong><span>Aus 1 Satz → vollständige App-Konfiguration</span></div></li>
+        <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>Admin-UI für App-Generierung</strong></div></li>
+        <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>10 Apps im Marktplatz</strong></div></li>
+      </ul>
+    </div>
+
+    <div class="phase">
+      <div class="phase-header">
+        <h2>Phase 3 — Marketing-Maschine</h2>
+        <span class="phase-tag planned">📋 Geplant</span>
+      </div>
+      <ul class="tasks">
+        <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>YouTube-Kanal</strong></div></li>
+        <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>Video-Pipeline aufbauen</strong><span>Skript → Bilder → Voiceover → Upload</span></div></li>
+        <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>Erstes automatisches Video live</strong></div></li>
+      </ul>
+    </div>
+
+    <div class="phase">
+      <div class="phase-header">
+        <h2>Phase 4 — Skalierung</h2>
+        <span class="phase-tag planned">📋 Geplant</span>
+      </div>
+      <ul class="tasks">
+        <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>27+ Apps im Marktplatz</strong></div></li>
+        <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>Community (Unlimited-Plan)</strong></div></li>
+        <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>Affiliate-Programm</strong></div></li>
+        <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>simplymindo.de Domain sichern</strong></div></li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+<footer class="page-footer">
+  <span>© 2026 mindo-factory · Internes Dashboard</span>
+  <a href="https://github.com/oechteli/mindo-factory" target="_blank">GitHub →</a>
 </footer>
+</div>
 </body>
 </html>

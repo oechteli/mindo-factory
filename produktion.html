@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>mindo-factory · App-Produktion</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<aside class="sidebar">
+  <div class="sidebar-logo"><a href="index.html"><span class="logo-icon">⚙️</span><div><div class="logo-text">mindo-factory</div><div class="logo-sub">Internes Projekt-Dashboard</div></div></a></div>
+  <nav class="sidebar-nav">
+    <div class="nav-group"><div class="nav-group-label">Start</div><a href="index.html"><span class="nav-icon">🏠</span> Übersicht</a><a href="status.html"><span class="nav-icon">📊</span> Aktueller Status <span class="nav-badge wip">Aktiv</span></a></div>
+    <div class="nav-group"><div class="nav-group-label">Planung</div><a href="roadmap.html"><span class="nav-icon">📋</span> Roadmap</a><a href="apps.html"><span class="nav-icon">📱</span> Alle Apps</a><a href="preise.html"><span class="nav-icon">💰</span> Preismodell</a></div>
+    <div class="nav-group"><div class="nav-group-label">Das System</div><a href="architektur.html"><span class="nav-icon">🏛️</span> Architektur</a><a href="produktion.html" class="active"><span class="nav-icon">🏭</span> App-Produktion</a><a href="marketing.html"><span class="nav-icon">🎬</span> Marketing & YouTube</a></div>
+    <div class="nav-group"><div class="nav-group-label">Projekt-Info</div><a href="marke.html"><span class="nav-icon">🎨</span> Marke & Produkte</a><a href="techstack.html"><span class="nav-icon">🔧</span> Tech-Stack</a></div>
+  </nav>
+  <div class="sidebar-footer"><strong>Stand: Juni 2026</strong>Checkboxen werden von Claude automatisch aktualisiert.</div>
+</aside>
+<div class="page-wrap">
+<div class="page-content">
+  <div class="page-header">
+    <h1>🏭 App-Produktion</h1>
+    <p>Wie eine neue App entsteht — von der Idee bis zur fertigen App im Marktplatz. Heute noch manuell, bald automatisch.</p>
+  </div>
+
+  <div class="section">
+    <h2>📊 Heute vs. Ziel</h2>
+    <div class="card-grid">
+      <div class="card">
+        <h3>🐌 Heute (Phase 1): Manuell</h3>
+        <p>Jede App wird einzeln von Claude und dir gebaut. Dauer: 1–3 Stunden pro App. Macht Sinn für die ersten 5–10 Apps um das System zu verstehen.</p>
+      </div>
+      <div class="card">
+        <h3>🚀 Ziel (Phase 2): Halbautomatisch</h3>
+        <p>App-Idee eingeben → KI generiert Konfiguration, Prompt und wählt UI-Baustein → kurze Prüfung → live. Dauer: unter 30 Minuten. Ziel: 1 neue App pro Tag.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>🔨 So entsteht heute eine App (Schritt für Schritt)</h2>
+    <div class="flow">
+      <div class="flow-step"><div class="step-num">1</div><div><h3>App-Idee definieren</h3><p>Welches Alltagsproblem löst die App? Wer ist die Zielgruppe? In einem Satz: "Eine App die Einkaufslisten nach Supermarkt-Layout sortiert für Leute die keine Zeit verschwenden wollen."</p></div></div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-step"><div class="step-num">2</div><div><h3>Konfigdatei anlegen</h3><p>Eine kurze Datei in <code>src/lib/apps/</code> mit: ID, Name, Icon, Beschreibung, Preis, Kategorie. Das reicht damit die App im Marktplatz erscheint.</p></div></div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-step"><div class="step-num">3</div><div><h3>KI-Prompt schreiben</h3><p>Wir schreiben Claude die Rolle: "Du bist ein Einkaufslisten-Optimierer. Wenn der Nutzer eine Liste eingibt, sortierst du diese nach typischen Supermarkt-Abteilungen: Obst/Gemüse → Brot → Kühlwaren → Tiefkühl → Drogerie → Kasse." Dieser Prompt ist der "Motor" der App.</p></div></div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-step"><div class="step-num">4</div><div><h3>UI-Baustein wählen</h3><p>Aus der Baustein-Bibliothek den passenden wählen: Chat-Interface, Formular-mit-Ergebnis, Tracker, Kalender etc. Kein neues Design nötig — Bausteine kombinieren.</p></div></div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-step"><div class="step-num">5</div><div><h3>Testen</h3><p>Lokal ausprobieren: funktioniert die KI-Antwort? Macht das Ergebnis Sinn? Ist die App intuitiv ohne Erklärung?</p></div></div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-step"><div class="step-num">6</div><div><h3>Deployen</h3><p>Git push → Cloudflare baut automatisch → App erscheint im Marktplatz. Fertig.</p></div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>🤖 So wird es in Phase 2 funktionieren (App-Generator)</h2>
+    <div class="info-box">
+      <strong>Die Vision:</strong> Du tippst eine Idee in ein Eingabefeld. Klickst auf "Generieren". In 30 Minuten ist die App live im Marktplatz. Kein Programmieren nötig.
+    </div>
+    <div class="flow">
+      <div class="flow-step"><div class="step-num">1</div><div><h3>Idee eingeben (Admin-Seite)</h3><p>Ein einfaches Eingabefeld das nur du siehst: "Ich möchte eine App die beim Renovieren die Kosten schätzt."</p></div></div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-step"><div class="step-num">2</div><div><h3>KI generiert alles</h3><p>Claude erstellt automatisch: App-ID, Name, Icon, Beschreibung, Preis-Empfehlung, Kategorie, den vollständigen KI-Prompt für die App-Logik, und empfiehlt den passenden UI-Baustein.</p></div></div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-step"><div class="step-num">3</div><div><h3>Vorschau prüfen</h3><p>Du siehst wie die App aussehen wird. Kannst Text anpassen, Preis ändern, Baustein wechseln.</p></div></div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-step"><div class="step-num">4</div><div><h3>Freigeben → live</h3><p>Ein Klick: Konfigdatei wird automatisch gespeichert, Git-Commit erstellt, Cloudflare deployed. App ist in Minuten live.</p></div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>🧩 Die UI-Baustein-Bibliothek</h2>
+    <p style="font-size:0.875rem;color:var(--text-muted);margin-bottom:16px;">Statt für jede App ein neues Design zu bauen, gibt es fertige Bausteine. Jede App wählt einen oder kombiniert mehrere.</p>
+    <div class="card-grid">
+      <div class="card"><h3>💬 Chat-Interface</h3><p>Nutzer schreibt etwas → KI antwortet. Ideal für: E-Mail-Antworter, Bewerbungsschreiben, Erklärer.</p></div>
+      <div class="card"><h3>📋 Formular + Ergebnis</h3><p>Felder ausfüllen → Button klicken → Ergebnis erscheint. Ideal für: Kalorienzähler, Kosten-Schätzer, Angebots-Generator.</p></div>
+      <div class="card"><h3>📅 Tracker</h3><p>Tägliche Einträge + Verlauf + Muster. Ideal für: Schlaftracker, Symptom-Tagebuch, Habit-Tracker.</p></div>
+      <div class="card"><h3>📊 Liste + Optimierung</h3><p>Liste eingeben → optimierte Liste raus. Ideal für: Einkaufsliste, Aufgaben-Planer, Mahlzeitenplaner.</p></div>
+      <div class="card"><h3>🗓️ Kalender</h3><p>Zeitbasierte Planung mit KI-Vorschlägen. Ideal für: Gartenkalender, Putzplan, Workout-Planer.</p></div>
+      <div class="card"><h3>📄 Dokument-Generator</h3><p>Eingaben → formatiertes Dokument. Ideal für: Angebot, Klageschreiben, Einladung.</p></div>
+    </div>
+  </div>
+
+</div>
+<footer class="page-footer">
+  <span>© 2026 mindo-factory · Internes Dashboard</span>
+  <a href="https://github.com/oechteli/mindo-factory" target="_blank">GitHub →</a>
+</footer>
+</div>
+</body>
+</html>

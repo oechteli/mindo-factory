@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>mindo-factory · Tech-Stack</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<aside class="sidebar">
+  <div class="sidebar-logo"><a href="index.html"><span class="logo-icon">⚙️</span><div><div class="logo-text">mindo-factory</div><div class="logo-sub">Internes Projekt-Dashboard</div></div></a></div>
+  <nav class="sidebar-nav">
+    <div class="nav-group"><div class="nav-group-label">Start</div><a href="index.html"><span class="nav-icon">🏠</span> Übersicht</a><a href="status.html"><span class="nav-icon">📊</span> Aktueller Status <span class="nav-badge wip">Aktiv</span></a></div>
+    <div class="nav-group"><div class="nav-group-label">Planung</div><a href="roadmap.html"><span class="nav-icon">📋</span> Roadmap</a><a href="apps.html"><span class="nav-icon">📱</span> Alle Apps</a><a href="preise.html"><span class="nav-icon">💰</span> Preismodell</a></div>
+    <div class="nav-group"><div class="nav-group-label">Das System</div><a href="architektur.html"><span class="nav-icon">🏛️</span> Architektur</a><a href="produktion.html"><span class="nav-icon">🏭</span> App-Produktion</a><a href="marketing.html"><span class="nav-icon">🎬</span> Marketing & YouTube</a></div>
+    <div class="nav-group"><div class="nav-group-label">Projekt-Info</div><a href="marke.html"><span class="nav-icon">🎨</span> Marke & Produkte</a><a href="techstack.html" class="active"><span class="nav-icon">🔧</span> Tech-Stack</a></div>
+  </nav>
+  <div class="sidebar-footer"><strong>Stand: Juni 2026</strong>Checkboxen werden von Claude automatisch aktualisiert.</div>
+</aside>
+<div class="page-wrap">
+<div class="page-content">
+  <div class="page-header">
+    <h1>🔧 Tech-Stack</h1>
+    <p>Alle Werkzeuge und Dienste die simplymindo benutzt — mit Erklärung warum wir sie gewählt haben.</p>
+  </div>
+
+  <div class="section">
+    <h2>⚙️ Alle Technologien auf einen Blick</h2>
+    <div class="card" style="padding:0;overflow:hidden;">
+      <table>
+        <thead><tr><th>Kategorie</th><th>Tool</th><th>Warum</th><th>Kosten</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Framework</strong></td><td>Next.js 14</td><td>Schnell, modern, funktioniert auf Cloudflare</td><td>Kostenlos</td></tr>
+          <tr><td><strong>Sprache</strong></td><td>TypeScript</td><td>Weniger Fehler als reines JavaScript</td><td>Kostenlos</td></tr>
+          <tr><td><strong>Styling</strong></td><td>Tailwind CSS</td><td>Schnell, kein CSS-Chaos, konsistent</td><td>Kostenlos</td></tr>
+          <tr><td><strong>UI-Komponenten</strong></td><td>shadcn/ui</td><td>Fertige schöne Bausteine, kein Design nötig</td><td>Kostenlos</td></tr>
+          <tr><td><strong>Auth</strong></td><td>Supabase Auth</td><td>Google OAuth eingebaut, einfach zu konfigurieren</td><td>Kostenlos (Free Tier)</td></tr>
+          <tr><td><strong>Datenbank</strong></td><td>Supabase PostgreSQL</td><td>Sicher, schnell, RLS eingebaut</td><td>Kostenlos bis 500MB</td></tr>
+          <tr><td><strong>Zahlung</strong></td><td>Stripe</td><td>Bester Standard, läuft in Deutschland, zuverlässig</td><td>2,9% + 0,25€ pro Transaktion</td></tr>
+          <tr><td><strong>KI</strong></td><td>Claude Haiku</td><td>Schnell, günstig, auf Deutsch sehr gut</td><td>~0,001 € pro Anfrage</td></tr>
+          <tr><td><strong>Hosting</strong></td><td>Cloudflare Pages</td><td>Kostenlos, weltweit schnell, kein Server nötig</td><td>Kostenlos</td></tr>
+          <tr><td><strong>Versionskontrolle</strong></td><td>GitHub</td><td>Standard, automatisches Deploy über Cloudflare</td><td>Kostenlos</td></tr>
+          <tr><td><strong>Video-Skript</strong></td><td>Claude API</td><td>Gleiche API, schreibt Video-Skripte automatisch</td><td>~0,01 € pro Skript</td></tr>
+          <tr><td><strong>Voiceover</strong></td><td>ElevenLabs / Azure</td><td>Natürliche deutsche Stimme, API verfügbar</td><td>~0,30 € pro Minute</td></tr>
+          <tr><td><strong>Video-Montage</strong></td><td>Remotion</td><td>Video aus Code — vollständig automatisierbar</td><td>Kostenlos (Open Source)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>💰 Monatliche Kosten (geschätzt)</h2>
+    <div class="info-box">
+      <strong>Fazit:</strong> simplymindo kann bis zu ~100 aktiven Nutzern vollständig kostenlos oder fast kostenlos betrieben werden. Kosten skalieren erst mit Umsatz.
+    </div>
+    <div class="card" style="padding:0;overflow:hidden;">
+      <table>
+        <thead><tr><th>Dienst</th><th>Start (0–100 Nutzer)</th><th>Wachstum (100–1.000 Nutzer)</th></tr></thead>
+        <tbody>
+          <tr><td>Cloudflare Pages</td><td>0 €</td><td>0 €</td></tr>
+          <tr><td>Supabase</td><td>0 € (Free)</td><td>~25 €/Monat (Pro)</td></tr>
+          <tr><td>Stripe</td><td>Nur % vom Umsatz</td><td>Nur % vom Umsatz</td></tr>
+          <tr><td>Claude Haiku (KI-Calls)</td><td>&lt;1 €</td><td>~5–20 €</td></tr>
+          <tr><td>ElevenLabs (Voiceover)</td><td>~0 € (Free Tier)</td><td>~22 €/Monat</td></tr>
+          <tr><td><strong>Gesamt</strong></td><td><strong>~0 €</strong></td><td><strong>~50–70 €</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>🔑 Zugänge &amp; Credentials</h2>
+    <div class="card-grid">
+      <div class="card">
+        <h3>Supabase</h3>
+        <p>Account: monika.oechtering@googlemail.com<br>Aktuell: geteiltes Projekt mit lebenskompass<br>Plan: eigenes simplymindo-Projekt für Launch</p>
+      </div>
+      <div class="card">
+        <h3>Stripe</h3>
+        <p>Account: Sprachschule Durlach<br>Status: 3 neue Produkte noch anlegen<br>Keys: bereits in .env.local</p>
+      </div>
+      <div class="card">
+        <h3>Anthropic (Claude)</h3>
+        <p>API Key: bereits in .env.local<br>Modell: Claude Haiku (günstigste Option)<br>Status: bereit</p>
+      </div>
+      <div class="card">
+        <h3>Cloudflare</h3>
+        <p>Account: bestehend<br>Hosting: Pages (kostenlos)<br>Deploy: via GitHub automatisch</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+<footer class="page-footer">
+  <span>© 2026 mindo-factory · Internes Dashboard</span>
+  <a href="https://github.com/oechteli/mindo-factory" target="_blank">GitHub →</a>
+</footer>
+</div>
+</body>
+</html>

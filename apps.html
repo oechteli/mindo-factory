@@ -3,235 +3,261 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>mindo-factory · Apps</title>
+<title>mindo-factory · Alle Apps</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<nav>
-  <div class="nav-inner">
-    <a href="index.html" class="logo">⚙️ mindo-factory</a>
-    <div class="nav-links">
-      <a href="index.html">Übersicht</a>
-      <a href="roadmap.html">Roadmap</a>
-      <a href="apps.html" class="active">Apps</a>
-      <a href="architektur.html">Architektur</a>
-    </div>
-  </div>
-</nav>
-
-<main>
-  <div class="page-title">
+<aside class="sidebar">
+  <div class="sidebar-logo"><a href="index.html"><span class="logo-icon">⚙️</span><div><div class="logo-text">mindo-factory</div><div class="logo-sub">Internes Projekt-Dashboard</div></div></a></div>
+  <nav class="sidebar-nav">
+    <div class="nav-group"><div class="nav-group-label">Start</div><a href="index.html"><span class="nav-icon">🏠</span> Übersicht</a><a href="status.html"><span class="nav-icon">📊</span> Aktueller Status <span class="nav-badge wip">Aktiv</span></a></div>
+    <div class="nav-group"><div class="nav-group-label">Planung</div><a href="roadmap.html"><span class="nav-icon">📋</span> Roadmap</a><a href="apps.html" class="active"><span class="nav-icon">📱</span> Alle Apps</a><a href="preise.html"><span class="nav-icon">💰</span> Preismodell</a></div>
+    <div class="nav-group"><div class="nav-group-label">Das System</div><a href="architektur.html"><span class="nav-icon">🏛️</span> Architektur</a><a href="produktion.html"><span class="nav-icon">🏭</span> App-Produktion</a><a href="marketing.html"><span class="nav-icon">🎬</span> Marketing & YouTube</a></div>
+    <div class="nav-group"><div class="nav-group-label">Projekt-Info</div><a href="marke.html"><span class="nav-icon">🎨</span> Marke & Produkte</a><a href="techstack.html"><span class="nav-icon">🔧</span> Tech-Stack</a></div>
+  </nav>
+  <div class="sidebar-footer"><strong>Stand: Juni 2026</strong>Checkboxen werden von Claude automatisch aktualisiert.</div>
+</aside>
+<div class="page-wrap">
+<div class="page-content">
+  <div class="page-header">
     <h1>📱 Alle Apps</h1>
-    <p>27+ geplante KI-Mini-Apps in 6 Kategorien. Grün = live, Gelb = in Arbeit, Grau = geplant.</p>
+    <p>27+ geplante KI-Mini-Apps in 6 Kategorien. Grüner Rahmen = live, alles andere = geplant. Jede App löst ein konkretes Alltagsproblem in unter 5 Minuten.</p>
   </div>
 
-  <!-- Haushalt & Familie -->
-  <div class="category-section">
+  <div class="info-box">
+    <strong>Auswahlprinzip:</strong> Wir bauen nur Apps die (1) ein echtes Ärgernis lösen das viele kennen, (2) in 5 Minuten erklärt sind, (3) sofort ein Ergebnis liefern und (4) eine klare Zielgruppe haben.
+  </div>
+
+  <div class="section">
     <h2>🏠 Haushalt &amp; Familie</h2>
     <div class="app-grid">
       <div class="app-card live">
         <div class="app-icon">✅</div>
         <h3>Aufgaben-Planer</h3>
-        <p>Familienaufgaben organisieren mit KI-Unterstützung und Prioritäten.</p>
-        <span class="tag live">✅ Live</span>
+        <p>Familienaufgaben verwalten, Prioritäten setzen, KI gibt Tipps zur Tagesplanung.</p>
+        <p style="margin-top:6px;font-size:0.75rem;color:var(--text-muted)"><strong>Zielgruppe:</strong> Familien, berufstätige Eltern</p>
+        <span class="app-status live">✅ Live</span>
       </div>
       <div class="app-card">
         <div class="app-icon">🛒</div>
         <h3>Einkaufslisten-Optimierer</h3>
-        <p>Liste eingeben → KI sortiert nach Supermarkt-Layout. Nie mehr quer durch den Laden laufen.</p>
-        <span class="tag planned">⬜ Geplant</span>
+        <p>Liste eingeben → KI sortiert nach Supermarkt-Layout (Gemüse → Kühlregal → Kasse). Nie mehr kreuz und quer laufen.</p>
+        <p style="margin-top:6px;font-size:0.75rem;color:var(--text-muted)"><strong>Zielgruppe:</strong> Alle die regelmäßig einkaufen</p>
+        <span class="app-status planned">⬜ Geplant</span>
       </div>
       <div class="app-card">
         <div class="app-icon">🍽️</div>
         <h3>Mahlzeitenplaner</h3>
-        <p>Wochenplan eingeben → automatische Einkaufsliste für alle Zutaten.</p>
-        <span class="tag planned">⬜ Geplant</span>
+        <p>Wochenmenü planen → KI erstellt automatisch die vollständige Einkaufsliste für alle Zutaten.</p>
+        <p style="margin-top:6px;font-size:0.75rem;color:var(--text-muted)"><strong>Zielgruppe:</strong> Familien, Meal Prepper</p>
+        <span class="app-status planned">⬜ Geplant</span>
       </div>
       <div class="app-card">
         <div class="app-icon">💰</div>
         <h3>Haushaltsbudget</h3>
-        <p>Ausgaben eingeben → KI kategorisiert automatisch und zeigt wo Geld verschwendet wird.</p>
-        <span class="tag planned">⬜ Geplant</span>
+        <p>Ausgaben eingeben (Freitext) → KI kategorisiert automatisch und zeigt wo Geld verschwendet wird.</p>
+        <p style="margin-top:6px;font-size:0.75rem;color:var(--text-muted)"><strong>Zielgruppe:</strong> Haushalte mit Budget-Bewusstsein</p>
+        <span class="app-status planned">⬜ Geplant</span>
       </div>
       <div class="app-card">
         <div class="app-icon">💊</div>
         <h3>Medikamenten-Reminder</h3>
-        <p>Medikamente eintragen, Erinnerungen setzen, Wechselwirkungen prüfen lassen.</p>
-        <span class="tag planned">⬜ Geplant</span>
+        <p>Medikamente eintragen, Uhrzeiten setzen, KI prüft auf bekannte Wechselwirkungen und warnt.</p>
+        <p style="margin-top:6px;font-size:0.75rem;color:var(--text-muted)"><strong>Zielgruppe:</strong> Ältere Menschen, Pflegende</p>
+        <span class="app-status planned">⬜ Geplant</span>
       </div>
       <div class="app-card">
         <div class="app-icon">🧹</div>
         <h3>Putzplan-Generator</h3>
-        <p>Haushaltsgröße + Personen eingeben → KI erstellt realistischen Wochenputzplan.</p>
-        <span class="tag planned">⬜ Geplant</span>
+        <p>Haushaltsgröße + verfügbare Zeit eingeben → KI erstellt realistischen Putzplan ohne Überforderung.</p>
+        <p style="margin-top:6px;font-size:0.75rem;color:var(--text-muted)"><strong>Zielgruppe:</strong> Alle Haushalte</p>
+        <span class="app-status planned">⬜ Geplant</span>
       </div>
     </div>
   </div>
 
-  <!-- Arbeit & Produktivität -->
-  <div class="category-section">
+  <div class="section">
     <h2>💼 Arbeit &amp; Produktivität</h2>
     <div class="app-grid">
       <div class="app-card">
         <div class="app-icon">🎙️</div>
         <h3>Meeting-Zusammenfasser</h3>
-        <p>Audio oder Text rein → Stichpunkte + Aufgaben raus. Nie mehr Meeting-Protokolle schreiben.</p>
-        <span class="tag planned">⬜ Geplant</span>
+        <p>Text oder Audio vom Meeting rein → KI erstellt Stichpunkte + Aufgabenliste mit Verantwortlichen.</p>
+        <p style="margin-top:6px;font-size:0.75rem;color:var(--text-muted)"><strong>Zielgruppe:</strong> Büroangestellte, Selbstständige</p>
+        <span class="app-status planned">⬜ Geplant</span>
       </div>
       <div class="app-card">
         <div class="app-icon">📧</div>
         <h3>E-Mail-Antworter</h3>
-        <p>Stichpunkte eingeben → fertig formulierte E-Mail im richtigen Ton.</p>
-        <span class="tag planned">⬜ Geplant</span>
+        <p>Stichpunkte was man antworten will eingeben → KI schreibt fertige E-Mail im richtigen Ton (formell/informell).</p>
+        <p style="margin-top:6px;font-size:0.75rem;color:var(--text-muted)"><strong>Zielgruppe:</strong> Alle Berufstätigen</p>
+        <span class="app-status planned">⬜ Geplant</span>
       </div>
       <div class="app-card">
         <div class="app-icon">📄</div>
         <h3>Angebots-Generator</h3>
-        <p>Für Freelancer und Handwerker: Leistungen eingeben → professionelles Angebot als PDF.</p>
-        <span class="tag planned">⬜ Geplant</span>
+        <p>Leistungen + Stundensatz eingeben → professionelles Angebot als PDF. Für Freelancer und Handwerker.</p>
+        <p style="margin-top:6px;font-size:0.75rem;color:var(--text-muted)"><strong>Zielgruppe:</strong> Freelancer, Handwerker, Selbstständige</p>
+        <span class="app-status planned">⬜ Geplant</span>
       </div>
       <div class="app-card">
         <div class="app-icon">🧾</div>
         <h3>Rechnungs-Scanner</h3>
-        <p>Foto von Rechnung → KI extrahiert Daten → Export für Buchhaltung.</p>
-        <span class="tag planned">⬜ Geplant</span>
+        <p>Foto von Rechnung hochladen → KI extrahiert Datum, Betrag, Kategorie → Export für Steuer/DATEV.</p>
+        <p style="margin-top:6px;font-size:0.75rem;color:var(--text-muted)"><strong>Zielgruppe:</strong> Selbstständige, kleine Firmen</p>
+        <span class="app-status planned">⬜ Geplant</span>
       </div>
       <div class="app-card">
         <div class="app-icon">📝</div>
         <h3>Bewerbungsschreiben-Assistent</h3>
-        <p>Stellenanzeige + Lebenslauf-Stichpunkte → individuelles Anschreiben.</p>
-        <span class="tag planned">⬜ Geplant</span>
+        <p>Stellenanzeige + eigene Stärken eingeben → individuelles Anschreiben das zur Stelle passt.</p>
+        <p style="margin-top:6px;font-size:0.75rem;color:var(--text-muted)"><strong>Zielgruppe:</strong> Jobsuchende</p>
+        <span class="app-status planned">⬜ Geplant</span>
       </div>
     </div>
   </div>
 
-  <!-- Lernen & Wissen -->
-  <div class="category-section">
+  <div class="section">
     <h2>📚 Lernen &amp; Wissen</h2>
     <div class="app-grid">
       <div class="app-card">
         <div class="app-icon">🗣️</div>
         <h3>Vokabeltrainer</h3>
-        <p>Vokabeln eingeben → KI erstellt Beispielsätze und Gedächtnisbrücken.</p>
-        <span class="tag planned">⬜ Geplant</span>
+        <p>Vokabeln eingeben → KI erstellt Beispielsätze, Eselsbrücken und Abfrage-Karten.</p>
+        <p style="margin-top:6px;font-size:0.75rem;color:var(--text-muted)"><strong>Zielgruppe:</strong> Sprachenlernende, Schüler</p>
+        <span class="app-status planned">⬜ Geplant</span>
       </div>
       <div class="app-card">
         <div class="app-icon">📰</div>
         <h3>Artikel-Zusammenfasser</h3>
-        <p>Langen Text oder PDF rein → 5 Kernaussagen raus. Ideal für Nachrichten und Fachthemen.</p>
-        <span class="tag planned">⬜ Geplant</span>
+        <p>Langen Text oder PDF-Link eingeben → 5 Kernaussagen + Fazit in 30 Sekunden.</p>
+        <p style="margin-top:6px;font-size:0.75rem;color:var(--text-muted)"><strong>Zielgruppe:</strong> Vielleser, Fachkräfte</p>
+        <span class="app-status planned">⬜ Geplant</span>
       </div>
       <div class="app-card">
         <div class="app-icon">🧠</div>
         <h3>Prüfungsvorbereitung</h3>
-        <p>Text eingeben → KI erstellt Quizfragen zum Lernen.</p>
-        <span class="tag planned">⬜ Geplant</span>
+        <p>Lernstoff eingeben → KI erstellt Quizfragen, Karteikarten und erklärt Lücken.</p>
+        <p style="margin-top:6px;font-size:0.75rem;color:var(--text-muted)"><strong>Zielgruppe:</strong> Schüler, Studenten</p>
+        <span class="app-status planned">⬜ Geplant</span>
       </div>
       <div class="app-card">
         <div class="app-icon">🎒</div>
         <h3>Hausaufgaben-Erklärer</h3>
-        <p>Aufgabe eingeben → KI erklärt in einfacher Sprache, die Kinder verstehen.</p>
-        <span class="tag planned">⬜ Geplant</span>
+        <p>Aufgabe eingeben → KI erklärt Schritt für Schritt in einfacher Sprache (nach Alter anpassbar).</p>
+        <p style="margin-top:6px;font-size:0.75rem;color:var(--text-muted)"><strong>Zielgruppe:</strong> Eltern mit Schulkindern</p>
+        <span class="app-status planned">⬜ Geplant</span>
       </div>
     </div>
   </div>
 
-  <!-- Gesundheit & Alltag -->
-  <div class="category-section">
+  <div class="section">
     <h2>💪 Gesundheit &amp; Alltag</h2>
     <div class="app-grid">
       <div class="app-card">
         <div class="app-icon">🩺</div>
         <h3>Symptom-Tagebuch</h3>
-        <p>Tägliche Beschwerden eintragen → KI erkennt Muster und gibt Hinweise.</p>
-        <span class="tag planned">⬜ Geplant</span>
+        <p>Tägliche Beschwerden eintragen → KI erkennt Muster (z.B. Kopfschmerzen immer montags) und gibt Hinweise.</p>
+        <p style="margin-top:6px;font-size:0.75rem;color:var(--text-muted)"><strong>Zielgruppe:</strong> Chronisch Kranke, Gesundheitsbewusste</p>
+        <span class="app-status planned">⬜ Geplant</span>
       </div>
       <div class="app-card">
         <div class="app-icon">😴</div>
         <h3>Schlaftracker-Auswertung</h3>
-        <p>Schlafdaten eingeben → KI analysiert Qualität und gibt Verbesserungstipps.</p>
-        <span class="tag planned">⬜ Geplant</span>
+        <p>Schlafdaten (Uhrzeit, Qualität, Träume) eingeben → KI analysiert und gibt konkrete Tipps.</p>
+        <p style="margin-top:6px;font-size:0.75rem;color:var(--text-muted)"><strong>Zielgruppe:</strong> Schlechte Schläfer</p>
+        <span class="app-status planned">⬜ Geplant</span>
       </div>
       <div class="app-card">
         <div class="app-icon">🥗</div>
         <h3>Kalorientracker</h3>
-        <p>Mahlzeit per Freitext oder Foto eingeben → Kalorien und Makros sofort.</p>
-        <span class="tag planned">⬜ Geplant</span>
+        <p>Mahlzeit als Freitext beschreiben → KI schätzt Kalorien und Makros sofort, ohne Datenbank-Suche.</p>
+        <p style="margin-top:6px;font-size:0.75rem;color:var(--text-muted)"><strong>Zielgruppe:</strong> Fitness-Bewusste, Abnehmer</p>
+        <span class="app-status planned">⬜ Geplant</span>
       </div>
       <div class="app-card">
         <div class="app-icon">🏋️</div>
         <h3>Workout-Planer</h3>
-        <p>Zeit + vorhandenes Equipment eingeben → KI erstellt individuellen Trainingsplan.</p>
-        <span class="tag planned">⬜ Geplant</span>
+        <p>Verfügbare Zeit + Equipment eingeben → KI erstellt individuelle Trainingsplan für heute.</p>
+        <p style="margin-top:6px;font-size:0.75rem;color:var(--text-muted)"><strong>Zielgruppe:</strong> Fitness-Einsteiger bis Fortgeschrittene</p>
+        <span class="app-status planned">⬜ Geplant</span>
       </div>
       <div class="app-card">
         <div class="app-icon">😤</div>
         <h3>Stresstage-Protokoll</h3>
-        <p>Stressmomente festhalten → KI erkennt Auslöser und schlägt Strategien vor.</p>
-        <span class="tag planned">⬜ Geplant</span>
+        <p>Stressmomente und Auslöser festhalten → KI erkennt Muster und schlägt konkrete Strategien vor.</p>
+        <p style="margin-top:6px;font-size:0.75rem;color:var(--text-muted)"><strong>Zielgruppe:</strong> Stressgeplagte Berufstätige</p>
+        <span class="app-status planned">⬜ Geplant</span>
       </div>
     </div>
   </div>
 
-  <!-- Handwerk & Haus -->
-  <div class="category-section">
+  <div class="section">
     <h2>🏗️ Handwerk &amp; Haus</h2>
     <div class="app-grid">
       <div class="app-card">
         <div class="app-icon">🔧</div>
         <h3>Renovierungskosten-Schätzer</h3>
-        <p>Raum + Maßnahmen eingeben → KI schätzt realistischen Kostenrahmen.</p>
-        <span class="tag planned">⬜ Geplant</span>
+        <p>Raum + geplante Maßnahmen eingeben → KI schätzt realistischen Kostenrahmen inkl. Materialien.</p>
+        <p style="margin-top:6px;font-size:0.75rem;color:var(--text-muted)"><strong>Zielgruppe:</strong> Hausbesitzer, Mieter</p>
+        <span class="app-status planned">⬜ Geplant</span>
       </div>
       <div class="app-card">
         <div class="app-icon">🌱</div>
         <h3>Gartenkalender</h3>
-        <p>PLZ + Pflanzen eingeben → KI erstellt Aussaat- und Pflegekalender für deine Region.</p>
-        <span class="tag planned">⬜ Geplant</span>
+        <p>PLZ + Pflanzen eingeben → KI erstellt Aussaat-, Pflege- und Ernte-Kalender für deine Region.</p>
+        <p style="margin-top:6px;font-size:0.75rem;color:var(--text-muted)"><strong>Zielgruppe:</strong> Hobbygärtner</p>
+        <span class="app-status planned">⬜ Geplant</span>
       </div>
       <div class="app-card">
         <div class="app-icon">📦</div>
         <h3>Umzugs-Checkliste</h3>
-        <p>Umzugsdatum + Details → vollständige Checkliste und Kostenplanung.</p>
-        <span class="tag planned">⬜ Geplant</span>
+        <p>Umzugsdatum + Details eingeben → vollständige Checkliste, Kostenplanung und Zeitstrahl.</p>
+        <p style="margin-top:6px;font-size:0.75rem;color:var(--text-muted)"><strong>Zielgruppe:</strong> Umziehende</p>
+        <span class="app-status planned">⬜ Geplant</span>
       </div>
     </div>
   </div>
 
-  <!-- Kreatives & Kommunikation -->
-  <div class="category-section">
+  <div class="section">
     <h2>📝 Kreatives &amp; Kommunikation</h2>
     <div class="app-grid">
       <div class="app-card">
         <div class="app-icon">🎂</div>
         <h3>Geburtstagskarten-Texter</h3>
-        <p>Person + Beziehung beschreiben → persönlicher, nicht generischer Glückwunschtext.</p>
-        <span class="tag planned">⬜ Geplant</span>
+        <p>Person + Beziehung + 2 persönliche Details beschreiben → herzlicher, individueller Text (kein Baustein-Brei).</p>
+        <p style="margin-top:6px;font-size:0.75rem;color:var(--text-muted)"><strong>Zielgruppe:</strong> Alle die Texte schreiben müssen</p>
+        <span class="app-status planned">⬜ Geplant</span>
       </div>
       <div class="app-card">
         <div class="app-icon">⚖️</div>
         <h3>Klagen- &amp; Brief-Generator</h3>
-        <p>Situation beschreiben → professionelles Schreiben an Behörde oder Vermieter.</p>
-        <span class="tag planned">⬜ Geplant</span>
+        <p>Situation beschreiben → professionelles Schreiben an Behörde, Vermieter oder Versicherung.</p>
+        <p style="margin-top:6px;font-size:0.75rem;color:var(--text-muted)"><strong>Zielgruppe:</strong> Menschen mit Amts-Ärger</p>
+        <span class="app-status planned">⬜ Geplant</span>
       </div>
       <div class="app-card">
         <div class="app-icon">💌</div>
-        <h3>Einladungs- &amp; Danksagungs-Texter</h3>
-        <p>Anlass + Details → warmer, persönlicher Text — kein Baustein-Brei.</p>
-        <span class="tag planned">⬜ Geplant</span>
+        <h3>Einladungs-Texter</h3>
+        <p>Anlass + Stil (formell/locker) + Datum → fertige Einladungs- oder Danksagungstexte.</p>
+        <p style="margin-top:6px;font-size:0.75rem;color:var(--text-muted)"><strong>Zielgruppe:</strong> Privatpersonen, Veranstalter</p>
+        <span class="app-status planned">⬜ Geplant</span>
       </div>
       <div class="app-card">
         <div class="app-icon">📲</div>
         <h3>Social-Media-Post-Generator</h3>
-        <p>Stichpunkte eingeben → fertig formulierter Post für Instagram, LinkedIn oder Facebook.</p>
-        <span class="tag planned">⬜ Geplant</span>
+        <p>Stichpunkte oder Foto-Beschreibung eingeben → fertig formulierter Post für Instagram, LinkedIn, Facebook.</p>
+        <p style="margin-top:6px;font-size:0.75rem;color:var(--text-muted)"><strong>Zielgruppe:</strong> Selbstständige, Content Creator</p>
+        <span class="app-status planned">⬜ Geplant</span>
       </div>
     </div>
   </div>
-</main>
 
-<footer>
-  <p>© 2026 mindo-factory · intern · <a href="https://simplymindo.de">simplymindo.de</a></p>
+</div>
+<footer class="page-footer">
+  <span>© 2026 mindo-factory · Internes Dashboard</span>
+  <a href="https://github.com/oechteli/mindo-factory" target="_blank">GitHub →</a>
 </footer>
+</div>
 </body>
 </html>

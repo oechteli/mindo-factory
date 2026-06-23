@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>mindo-factory · Marketing & YouTube</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<aside class="sidebar">
+  <div class="sidebar-logo"><a href="index.html"><span class="logo-icon">⚙️</span><div><div class="logo-text">mindo-factory</div><div class="logo-sub">Internes Projekt-Dashboard</div></div></a></div>
+  <nav class="sidebar-nav">
+    <div class="nav-group"><div class="nav-group-label">Start</div><a href="index.html"><span class="nav-icon">🏠</span> Übersicht</a><a href="status.html"><span class="nav-icon">📊</span> Aktueller Status <span class="nav-badge wip">Aktiv</span></a></div>
+    <div class="nav-group"><div class="nav-group-label">Planung</div><a href="roadmap.html"><span class="nav-icon">📋</span> Roadmap</a><a href="apps.html"><span class="nav-icon">📱</span> Alle Apps</a><a href="preise.html"><span class="nav-icon">💰</span> Preismodell</a></div>
+    <div class="nav-group"><div class="nav-group-label">Das System</div><a href="architektur.html"><span class="nav-icon">🏛️</span> Architektur</a><a href="produktion.html"><span class="nav-icon">🏭</span> App-Produktion</a><a href="marketing.html" class="active"><span class="nav-icon">🎬</span> Marketing & YouTube</a></div>
+    <div class="nav-group"><div class="nav-group-label">Projekt-Info</div><a href="marke.html"><span class="nav-icon">🎨</span> Marke & Produkte</a><a href="techstack.html"><span class="nav-icon">🔧</span> Tech-Stack</a></div>
+  </nav>
+  <div class="sidebar-footer"><strong>Stand: Juni 2026</strong>Checkboxen werden von Claude automatisch aktualisiert.</div>
+</aside>
+<div class="page-wrap">
+<div class="page-content">
+  <div class="page-header">
+    <h1>🎬 Marketing &amp; YouTube</h1>
+    <p>Wie neue Kunden zu simplymindo finden — und warum YouTube der Haupt-Kanal ist.</p>
+  </div>
+
+  <div class="section">
+    <h2>🎯 Die Strategie</h2>
+    <div class="info-box">
+      <strong>Kernidee:</strong> Jede App bekommt ein YouTube-Video das das Problem zeigt, die App als Lösung vorstellt, und direkt auf simplymindo verlinkt. YouTube ist kostenlos, dauerhaft und bringt genau die Zielgruppe die das Problem kennt.
+    </div>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-icon">🔍</div>
+        <h3>Warum YouTube?</h3>
+        <p>Menschen suchen auf YouTube nach Lösungen für konkrete Probleme. "Wie sortiere ich meine Einkaufsliste?" → Video → Link zu simplymindo. Kostenlos, dauerhaft, skalierbar.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">📈</div>
+        <h3>Der Kreislauf</h3>
+        <p>Mehr Apps → mehr Videos → mehr Suchbegriffe → mehr Besucher → mehr Käufe → mehr Einnahmen → mehr Apps bauen. Ein sich selbst verstärkender Kreislauf.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🤖</div>
+        <h3>Automatisiert produzieren</h3>
+        <p>Ziel: Skript → Bilder → Voiceover → Schnitt → Upload läuft vollautomatisch. Einmal aufgebaut produziert die Maschine Videos ohne manuellen Aufwand.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🎯</div>
+        <h3>Faceless Format</h3>
+        <p>Kein Gesicht, keine Kamera nötig. Screencast der App + KI-Stimme + Untertitel. Einfach zu produzieren, einfach zu automatisieren.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>🎬 Das Video-Format</h2>
+    <p style="font-size:0.875rem;color:var(--text-muted);margin-bottom:16px;">Jedes Video hat die gleiche Struktur — immer 60–90 Sekunden, immer der gleiche Aufbau:</p>
+    <div class="flow">
+      <div class="flow-step"><div class="step-num">1</div><div><h3>Hook (0–5 Sek): Das Problem</h3><p>"Du kennst das: du stehst im Supermarkt, hast deine Liste — und läufst 5x quer durch den Laden weil alles durcheinander steht."</p></div></div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-step"><div class="step-num">2</div><div><h3>Demo (5–50 Sek): Die Lösung</h3><p>Screencast der App. Wir zeigen: Liste eingeben → KI sortiert → fertig. Echte Nutzung, kein Marketing-Sprech.</p></div></div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-step"><div class="step-num">3</div><div><h3>Ergebnis (50–70 Sek): Der Nutzen</h3><p>"Das war's. Kein Hin-und-Her mehr. Die App kostet einmalig 1,99 € — das ist weniger als ein Kaffee."</p></div></div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-step"><div class="step-num">4</div><div><h3>CTA (70–80 Sek): Link</h3><p>"Link in der Beschreibung → simplymindo.de → Aufgaben-Planer." Einfach, direkt, klar.</p></div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>🏭 Die Video-Produktions-Pipeline</h2>
+    <p style="font-size:0.875rem;color:var(--text-muted);margin-bottom:16px;">So funktioniert die automatische Video-Produktion (Phase 3):</p>
+    <div class="flow">
+      <div class="flow-step"><div class="step-num">1</div><div><h3>Skript-Generator</h3><p>Claude bekommt die App-Beschreibung und schreibt das vollständige Video-Skript nach dem obigen Format. Output: Text mit Szenen-Markierungen.</p><span style="font-size:0.75rem;color:var(--purple)">Claude API</span></div></div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-step"><div class="step-num">2</div><div><h3>Screencast aufnehmen</h3><p>Einmalig: die App-Demo als Bildschirmaufnahme aufnehmen. Wird in den Video-Schnitt eingebaut. (Noch manuell — Automatisierung später möglich)</p></div></div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-step"><div class="step-num">3</div><div><h3>Voiceover generieren</h3><p>Das Skript wird in eine natürliche deutsche Stimme umgewandelt. Kein Mikrofon, kein Aufnehmen nötig.</p><span style="font-size:0.75rem;color:var(--purple)">ElevenLabs oder Azure TTS</span></div></div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-step"><div class="step-num">4</div><div><h3>Video-Montage</h3><p>Screencast + Voiceover + Untertitel + Intro/Outro werden zusammengefügt.</p><span style="font-size:0.75rem;color:var(--purple)">Remotion (Code) oder CapCut</span></div></div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-step"><div class="step-num">5</div><div><h3>YouTube-Upload</h3><p>Titel (SEO-optimiert), Beschreibung mit Link, Tags und Thumbnail werden automatisch generiert und hochgeladen.</p><span style="font-size:0.75rem;color:var(--purple)">YouTube Data API</span></div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>📋 Video-Roadmap: welche App als nächstes?</h2>
+    <ul class="tasks">
+      <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>YouTube-Kanal anlegen</strong><span>Name, Beschreibung, Kanalart, Branding (Banner, Profilbild)</span></div></li>
+      <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>Video-Vorlage erstellen</strong><span>Intro, Outro, Farben, Font — einmal definieren, immer wiederverwenden</span></div></li>
+      <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>Video 1: Aufgaben-Planer</strong><span>Erste App → erstes Video (noch manuell produziert)</span></div></li>
+      <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>Skript-Generator-Prompt fertigstellen</strong><span>Claude schreibt Video-Skripte automatisch aus App-Beschreibung</span></div></li>
+      <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>Voiceover-Pipeline aufsetzen</strong></div></li>
+      <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>Erstes vollautomatisches Video</strong><span>Video 2 komplett ohne manuelle Arbeit produziert</span></div></li>
+      <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>Video für alle 10 ersten Apps</strong></div></li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>📣 Weitere Marketing-Kanäle (später)</h2>
+    <div class="card-grid">
+      <div class="card"><h3>SEO</h3><p>Jede App bekommt eine eigene Landingpage mit Keywords wie "Einkaufsliste sortieren App". Langfristiger kostenloser Traffic.</p></div>
+      <div class="card"><h3>Pinterest</h3><p>Visuelle Plattform gut geeignet für Haushalt & Alltag. Auto-Posts aus Video-Thumbnails möglich.</p></div>
+      <div class="card"><h3>Affiliate</h3><p>Andere empfehlen simplymindo und erhalten 20–30% vom Verkauf. Wächst ohne Werbebudget.</p></div>
+      <div class="card"><h3>TikTok</h3><p>Kurze App-Demos als TikTok — gleicher Inhalt wie YouTube, anderer Schnitt. Gleiche Pipeline wiederverwendbar.</p></div>
+    </div>
+  </div>
+
+</div>
+<footer class="page-footer">
+  <span>© 2026 mindo-factory · Internes Dashboard</span>
+  <a href="https://github.com/oechteli/mindo-factory" target="_blank">GitHub →</a>
+</footer>
+</div>
+</body>
+</html>
