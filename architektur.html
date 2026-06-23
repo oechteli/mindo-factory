@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>mindo-factory · Architektur</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="logo">⚙️ mindo-factory</a>
+    <div class="nav-links">
+      <a href="index.html">Übersicht</a>
+      <a href="roadmap.html">Roadmap</a>
+      <a href="apps.html">Apps</a>
+      <a href="architektur.html" class="active">Architektur</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="page-title">
+    <h1>🏛️ Architektur</h1>
+    <p>Wie das System aufgebaut ist — einfach erklärt, ohne Vorkenntnisse.</p>
+  </div>
+
+  <!-- Der Sockel -->
+  <div class="arch-section">
+    <h2>1. Der Sockel — das Fundament</h2>
+    <p class="lead">Wie ein Haus braucht auch eine Web-App ein Fundament. Der Sockel wird einmal gebaut und dann von allen Apps gemeinsam genutzt. Jede neue App "steht" auf diesem Fundament — ohne dass man es neu bauen muss.</p>
+    <div class="arch-blocks">
+      <div class="arch-block">
+        <div class="ab-icon">🔐</div>
+        <div>
+          <h3>Login & Nutzerverwaltung</h3>
+          <p>Kunden melden sich mit Google an — kein Passwort merken, kein Formular ausfüllen. Das System erkennt automatisch, welcher Nutzer welche Apps gekauft hat.</p>
+          <div class="ab-tech">Supabase Auth + Google OAuth</div>
+        </div>
+      </div>
+      <div class="arch-block">
+        <div class="ab-icon">💳</div>
+        <div>
+          <h3>Zahlung & Abos</h3>
+          <p>Kunden zahlen sicher über Stripe. Ob Einzel-App (1,99 €), Flex-Paket (7,99 €/Monat) oder Unlimited (14,99 €/Monat) — alles läuft automatisch. Nach dem Kauf wird die App sofort freigeschaltet.</p>
+          <div class="ab-tech">Stripe Checkout + Webhooks</div>
+        </div>
+      </div>
+      <div class="arch-block">
+        <div class="ab-icon">🗄️</div>
+        <div>
+          <h3>Datenbank</h3>
+          <p>Speichert: welcher Nutzer existiert, welche Apps er gekauft hat, und alle Eingaben innerhalb der Apps. Komplett gesichert, mit Zugriffsschutz — jeder sieht nur seine eigenen Daten.</p>
+          <div class="ab-tech">Supabase (PostgreSQL + Row Level Security)</div>
+        </div>
+      </div>
+      <div class="arch-block">
+        <div class="ab-icon">🤖</div>
+        <div>
+          <h3>KI-Anbindung</h3>
+          <p>Jede App kann die KI ansprechen. Der Nutzer gibt etwas ein (Text, Zahlen, eine Frage) — die KI antwortet sofort mit einem nützlichen Ergebnis. Die KI läuft nie im Browser des Nutzers, sondern sicher auf dem Server.</p>
+          <div class="ab-tech">Anthropic Claude Haiku (API)</div>
+        </div>
+      </div>
+      <div class="arch-block">
+        <div class="ab-icon">🌐</div>
+        <div>
+          <h3>Hosting & Geschwindigkeit</h3>
+          <p>Die Seite liegt auf Cloudflare — weltweit verteilt, extrem schnell, kostenlos für den Start. Kein eigener Server nötig.</p>
+          <div class="ab-tech">Cloudflare Pages + Next.js 14</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Wie eine App entsteht -->
+  <div class="arch-section">
+    <h2>2. Wie eine neue App entsteht</h2>
+    <p class="lead">Dank des Konfigurationssystems braucht jede neue App nur eine einzige Datei — alles andere (Login, Zahlung, Layout) ist schon fertig.</p>
+    <div class="arch-blocks">
+      <div class="arch-block">
+        <div class="ab-icon">📄</div>
+        <div>
+          <h3>Schritt 1: Konfigdatei anlegen</h3>
+          <p>Eine kleine Textdatei beschreibt die App: Name, Icon, Beschreibung, Preis, Kategorie. Das reicht, damit die App im Marktplatz erscheint.</p>
+          <div class="ab-tech">src/lib/apps/meine-app.ts</div>
+        </div>
+      </div>
+      <div class="flow-arrow">↓</div>
+      <div class="arch-block">
+        <div class="ab-icon">🧩</div>
+        <div>
+          <h3>Schritt 2: UI-Baustein wählen</h3>
+          <p>Aus fertigen Bausteinen (Chat-Fenster, Formular, Ergebnis-Karte, Tracker) wird der passende ausgewählt. Kein neues Design nötig — einfach kombinieren.</p>
+          <div class="ab-tech">React-Komponenten aus src/components/apps/</div>
+        </div>
+      </div>
+      <div class="flow-arrow">↓</div>
+      <div class="arch-block">
+        <div class="ab-icon">💬</div>
+        <div>
+          <h3>Schritt 3: KI-Prompt schreiben</h3>
+          <p>Ein kurzer Text erklärt der KI, was sie tun soll: "Du bist ein Einkaufslisten-Optimierer. Sortiere diese Liste nach Supermarkt-Abteilungen…" Das ist der eigentliche "Motor" der App.</p>
+          <div class="ab-tech">Claude Haiku System-Prompt</div>
+        </div>
+      </div>
+      <div class="flow-arrow">↓</div>
+      <div class="arch-block">
+        <div class="ab-icon">✅</div>
+        <div>
+          <h3>Fertig — App ist live</h3>
+          <p>Die App erscheint automatisch im Marktplatz, kann gekauft werden, und funktioniert sofort. Login, Zahlung und Datenspeicherung sind bereits vorhanden.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Der App-Generator -->
+  <div class="arch-section">
+    <h2>3. Der App-Generator (Phase 2)</h2>
+    <p class="lead">Der nächste Schritt: nicht nur Apps bauen — sondern einen Generator bauen, der automatisch neue Apps produziert.</p>
+    <div class="arch-blocks">
+      <div class="arch-block">
+        <div class="ab-icon">💡</div>
+        <div>
+          <h3>Idee eingeben</h3>
+          <p>In einem Eingabefeld (nur für Admins sichtbar) schreibt man eine App-Idee in einem Satz: <em>"Eine App die mir hilft, meine Pflanzen zu pflegen"</em></p>
+        </div>
+      </div>
+      <div class="flow-arrow">↓</div>
+      <div class="arch-block">
+        <div class="ab-icon">🤖</div>
+        <div>
+          <h3>KI generiert alles</h3>
+          <p>Claude erstellt automatisch: Konfigdatei (Name, Icon, Beschreibung, Preis), den passenden KI-Prompt für die App-Logik, und wählt den richtigen UI-Baustein aus.</p>
+          <div class="ab-tech">Claude API → JSON-Ausgabe</div>
+        </div>
+      </div>
+      <div class="flow-arrow">↓</div>
+      <div class="arch-block">
+        <div class="ab-icon">🚀</div>
+        <div>
+          <h3>App ist in 30 Minuten live</h3>
+          <p>Statt Stunden oder Tage zu programmieren: kurz prüfen, freigeben, deployen. Die Fabrik produziert Apps am laufenden Band.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Die Marketing-Maschine -->
+  <div class="arch-section">
+    <h2>4. Die Marketing-Maschine (Phase 3)</h2>
+    <p class="lead">Jede neue App bekommt automatisch ein YouTube-Video — ohne stundenlange Videobearbeitung.</p>
+    <div class="arch-blocks">
+      <div class="arch-block">
+        <div class="ab-icon">📝</div>
+        <div>
+          <h3>Skript-Generator</h3>
+          <p>Claude schreibt aus der App-Beschreibung ein vollständiges Video-Skript: Problem → Lösung → Demo → Kauflink. Immer gleiche Struktur, immer überzeugend.</p>
+        </div>
+      </div>
+      <div class="flow-arrow">↓</div>
+      <div class="arch-block">
+        <div class="ab-icon">🖼️</div>
+        <div>
+          <h3>Bilder & Screencasts</h3>
+          <p>KI-generierte Bilder für jede Szene, kombiniert mit echten Screencast-Aufnahmen der App.</p>
+          <div class="ab-tech">Higgsfield / Remotion</div>
+        </div>
+      </div>
+      <div class="flow-arrow">↓</div>
+      <div class="arch-block">
+        <div class="ab-icon">🎙️</div>
+        <div>
+          <h3>Voiceover</h3>
+          <p>Text-to-Speech erstellt den deutschen Kommentar — professionelle Stimme, kein Mikrofon nötig.</p>
+          <div class="ab-tech">ElevenLabs / Azure TTS</div>
+        </div>
+      </div>
+      <div class="flow-arrow">↓</div>
+      <div class="arch-block">
+        <div class="ab-icon">📺</div>
+        <div>
+          <h3>Automatischer Upload</h3>
+          <p>Video wird automatisch auf YouTube hochgeladen — mit Titel, Beschreibung und Link zur App. Einmal eingerichtet, läuft die ganze Pipeline von selbst.</p>
+          <div class="ab-tech">YouTube Data API</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tech-Überblick -->
+  <div class="arch-section">
+    <h2>5. Alle Technologien auf einen Blick</h2>
+    <p class="lead">Für alle, die es genau wissen wollen:</p>
+    <div class="arch-blocks">
+      <div class="arch-block">
+        <div class="ab-icon">📦</div>
+        <div>
+          <h3>Technologie-Stack</h3>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px;">
+            <div><strong>Framework</strong><br><span class="ab-tech">Next.js 14 (App Router)</span></div>
+            <div><strong>Styling</strong><br><span class="ab-tech">Tailwind CSS + shadcn/ui</span></div>
+            <div><strong>Auth</strong><br><span class="ab-tech">Supabase + Google OAuth</span></div>
+            <div><strong>Datenbank</strong><br><span class="ab-tech">Supabase (PostgreSQL)</span></div>
+            <div><strong>Zahlung</strong><br><span class="ab-tech">Stripe</span></div>
+            <div><strong>KI</strong><br><span class="ab-tech">Anthropic Claude Haiku</span></div>
+            <div><strong>Hosting</strong><br><span class="ab-tech">Cloudflare Pages</span></div>
+            <div><strong>Video</strong><br><span class="ab-tech">Higgsfield + Remotion</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <p>© 2026 mindo-factory · intern · <a href="https://simplymindo.de">simplymindo.de</a></p>
+</footer>
+</body>
+</html>

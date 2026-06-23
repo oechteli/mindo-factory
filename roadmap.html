@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>mindo-factory · Roadmap</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="logo">⚙️ mindo-factory</a>
+    <div class="nav-links">
+      <a href="index.html">Übersicht</a>
+      <a href="roadmap.html" class="active">Roadmap</a>
+      <a href="apps.html">Apps</a>
+      <a href="architektur.html">Architektur</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="page-title">
+    <h1>📋 Roadmap</h1>
+    <p>Alle Schritte zum fertigen System — was abgehakt ist, ist live oder fertig gebaut.</p>
+  </div>
+
+  <!-- Phase 0 -->
+  <div class="roadmap-phase">
+    <h2><span>✅</span> Phase 0 — Vorbereitung</h2>
+    <ul class="task-list">
+      <li class="done"><span class="cb">☑️</span><div class="task-text"><strong>Lebenskompass als Basis kopiert</strong><span>Next.js 14, Supabase Auth, Stripe, Claude Haiku — alles schon drin</span></div></li>
+      <li class="done"><span class="cb">☑️</span><div class="task-text"><strong>package.json auf "simplymindo" umbenannt</strong></div></li>
+      <li class="done"><span class="cb">☑️</span><div class="task-text"><strong>.env.local mit allen Keys befüllt</strong><span>Supabase, Stripe, Anthropic, Google OAuth</span></div></li>
+      <li class="done"><span class="cb">☑️</span><div class="task-text"><strong>App-Konfigurationssystem angelegt</strong><span>src/lib/apps/index.ts — jede App = eine Konfigdatei</span></div></li>
+    </ul>
+  </div>
+
+  <!-- Phase 1 -->
+  <div class="roadmap-phase">
+    <h2><span>🔨</span> Phase 1 — Sockel (aktiv)</h2>
+    <ul class="task-list">
+      <li class="done"><span class="cb">☑️</span><div class="task-text"><strong>Startseite → App-Marktplatz</strong><span>Alle Apps als Karten mit Preis, Kategorie, "Bald"-Badge</span></div></li>
+      <li><span class="cb">⬜</span><div class="task-text"><strong>Supabase-Schema anpassen</strong><span>user_apps Tabelle (welcher User hat welche Apps gekauft)</span></div></li>
+      <li><span class="cb">⬜</span><div class="task-text"><strong>Dashboard → freigeschaltete Apps anzeigen</strong><span>Nach Login sieht man nur die eigenen gekauften Apps</span></div></li>
+      <li><span class="cb">⬜</span><div class="task-text"><strong>3 Stripe-Produkte anlegen</strong><span>Einzeln 1,99 € / Flex 7,99 € / Unlimited 14,99 € — Price-IDs in .env.local</span></div></li>
+      <li><span class="cb">⬜</span><div class="task-text"><strong>Stripe-Checkout für alle 3 Pläne verdrahten</strong></div></li>
+      <li><span class="cb">⬜</span><div class="task-text"><strong>Erste App einbinden: Aufgaben-Planer</strong><span>Fertiges HTML aus familien-dashboard als simplymindo-App verpacken</span></div></li>
+      <li><span class="cb">⬜</span><div class="task-text"><strong>GitHub-Repo anlegen (oechteli/simplymindo)</strong></div></li>
+      <li><span class="cb">⬜</span><div class="task-text"><strong>Deploy auf Cloudflare Pages</strong></div></li>
+    </ul>
+  </div>
+
+  <!-- Phase 2 -->
+  <div class="roadmap-phase">
+    <h2><span>🤖</span> Phase 2 — App-Generator</h2>
+    <ul class="task-list">
+      <li><span class="cb">⬜</span><div class="task-text"><strong>Komponenten-Bibliothek aufbauen</strong><span>5–10 wiederverwendbare UI-Bausteine: Chat, Formular, Ergebnis-Card, Tracker, Kalender</span></div></li>
+      <li><span class="cb">⬜</span><div class="task-text"><strong>App-Generator-Prompt schreiben</strong><span>Claude-Prompt der aus einer Idee (1 Satz) eine vollständige App-Konfiguration erzeugt</span></div></li>
+      <li><span class="cb">⬜</span><div class="task-text"><strong>Generator-UI bauen (Admin-Seite)</strong><span>Eingabefeld für App-Idee → "Generieren" → fertige App erscheint im Marktplatz</span></div></li>
+      <li><span class="cb">⬜</span><div class="task-text"><strong>Erste automatisch generierte App</strong><span>Ziel: neue App in unter 30 Minuten, nicht Stunden</span></div></li>
+      <li><span class="cb">⬜</span><div class="task-text"><strong>10 Apps im Marktplatz</strong></div></li>
+    </ul>
+  </div>
+
+  <!-- Phase 3 -->
+  <div class="roadmap-phase">
+    <h2><span>🎬</span> Phase 3 — Marketing-Maschine</h2>
+    <ul class="task-list">
+      <li><span class="cb">⬜</span><div class="task-text"><strong>YouTube-Kanal anlegen</strong><span>simplymindo oder passendem Kanal-Namen</span></div></li>
+      <li><span class="cb">⬜</span><div class="task-text"><strong>Video-Vorlage definieren</strong><span>Aufbau: Problem → App-Demo → CTA — für jede App gleich</span></div></li>
+      <li><span class="cb">⬜</span><div class="task-text"><strong>Skript-Generator-Prompt</strong><span>Claude schreibt Video-Skript aus App-Beschreibung</span></div></li>
+      <li><span class="cb">⬜</span><div class="task-text"><strong>Bilder-Pipeline (Higgsfield/Midjourney)</strong><span>Szenenbilder für Screencasts automatisch generieren</span></div></li>
+      <li><span class="cb">⬜</span><div class="task-text"><strong>Voiceover-Pipeline</strong><span>Text-to-Speech für deutsche Erklärungen</span></div></li>
+      <li><span class="cb">⬜</span><div class="task-text"><strong>Erstes vollständig automatisches Video</strong></div></li>
+      <li><span class="cb">⬜</span><div class="task-text"><strong>1 Video pro App (27+ Videos)</strong></div></li>
+    </ul>
+  </div>
+
+  <!-- Phase 4 -->
+  <div class="roadmap-phase">
+    <h2><span>🚀</span> Phase 4 — Skalierung</h2>
+    <ul class="task-list">
+      <li><span class="cb">⬜</span><div class="task-text"><strong>27+ Apps im Marktplatz</strong></div></li>
+      <li><span class="cb">⬜</span><div class="task-text"><strong>Community-Bereich (Unlimited-Plan)</strong></div></li>
+      <li><span class="cb">⬜</span><div class="task-text"><strong>Affiliate-Programm</strong><span>Andere können simplymindo empfehlen und verdienen</span></div></li>
+      <li><span class="cb">⬜</span><div class="task-text"><strong>B2B-Lizenzen</strong><span>Firmen kaufen Pakete für ihre Mitarbeiter</span></div></li>
+      <li><span class="cb">⬜</span><div class="task-text"><strong>Eigene Domain simplymindo.de sichern</strong></div></li>
+      <li><span class="cb">⬜</span><div class="task-text"><strong>Neues Supabase-Projekt (Trennung von lebenskompass)</strong></div></li>
+    </ul>
+  </div>
+</main>
+
+<footer>
+  <p>© 2026 mindo-factory · intern · <a href="https://simplymindo.de">simplymindo.de</a></p>
+</footer>
+</body>
+</html>
