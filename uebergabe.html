@@ -186,83 +186,85 @@
   <div class="page-header">
     <h1>🔁 Übergabeprotokoll</h1>
     <p>Hier steht immer, wo das Projekt gerade steht — damit du von jedem PC oder nach jeder Pause sofort weiterarbeiten kannst. Claude aktualisiert diese Seite am Ende jeder Arbeits-Session.</p>
-    <span class="updated">🤖 Zuletzt aktualisiert: 23. Juni 2026 — Session mit Claude</span>
+    <span class="updated">🤖 Zuletzt aktualisiert: 23. Juni 2026 — Autonome Session (1h)</span>
   </div>
 
   <!-- Meta-Badges -->
   <div class="handover-meta">
-    <div class="meta-badge">📍 Phase <strong>1 — Sockel</strong></div>
+    <div class="meta-badge">📍 Phase <strong>1 — fast fertig</strong></div>
     <div class="meta-badge">🌿 Branch <strong>master</strong></div>
     <div class="meta-badge">📦 Portal-Repo <strong>oechteli/simplymindo-portal</strong></div>
     <div class="meta-badge">📦 Roadmap-Repo <strong>oechteli/mindo-factory</strong></div>
     <div class="meta-badge">🌐 Roadmap live <strong>simplymindo-roadmap.pages.dev</strong></div>
     <div class="meta-badge">🛒 Portal <strong>noch nicht deployt</strong></div>
+    <div class="meta-badge">📱 Apps live <strong>3</strong></div>
+    <div class="meta-badge">📱 Apps geplant <strong>27</strong></div>
   </div>
 
   <!-- Was zuletzt gemacht wurde -->
   <div class="handover-block">
-    <h3>✅ Was in der letzten Session gemacht wurde</h3>
+    <h3>✅ Was in der autonomen Session gemacht wurde (23. Juni 2026)</h3>
     <ul>
-      <li>Supabase-Schema fertig geschrieben — <code>profiles</code> + <code>user_apps</code> Tabellen, RLS-Policies, Auth-Trigger</li>
-      <li>Dashboard komplett neu gebaut — zeigt freigeschaltete Apps, Plan-Banner (free/flex/unlimited), Upgrade-Links</li>
-      <li>App-Router <code>/app/[id]</code> — Zugriffsprüfung gegen Supabase, Paywall für nicht freigeschaltete Apps</li>
-      <li>Checkout-API für alle 3 Pläne — Einzeln (einmalig) / Flex + Unlimited (Abo), Stripe-Session mit Metadaten</li>
-      <li>Webhook fertig — schreibt <code>user_apps</code> bei Einzelkauf, aktualisiert <code>subscription_status</code> bei Abo/Kündigung</li>
-      <li>Aufgaben-Planer als erste App — Prioritäten, Abhakliste, KI-Tagesplan via Claude Haiku</li>
-      <li>KI-API-Route <code>/api/ai/aufgaben</code> für den Aufgaben-Planer</li>
-      <li>GitHub gepusht (beide Repos), Obsidian-Notiz aktualisiert, Roadmap-Checkboxen abgehakt</li>
+      <li><strong>Login-Seite</strong> komplett auf simplymindo-Branding umgestellt — Violet, ⚡-Logo, kein Lebenskompass mehr</li>
+      <li><strong>Settings-Seite</strong> neu gebaut — zeigt Plan (free/flex/unlimited), Upgrade-Buttons, Abo-Portal-Link</li>
+      <li><strong>Checkout-Seite</strong> <code>/checkout</code> — eigene Seite vor Stripe: App-Details, Preis-Summary, "Was ist enthalten"</li>
+      <li><strong>App-Katalog</strong> auf 27 Apps erweitert — 6 Kategorien, 3 live, Rest mit "Bald"-Badge</li>
+      <li><strong>Budget-Rechner</strong> (App 2) — Einnahmen/Ausgaben-Tracker mit KI-Spartipps via Claude Haiku</li>
+      <li><strong>Einkaufslisten-Optimierer</strong> (App 3) — Artikel sammeln, KI sortiert nach Supermarkt-Gängen (JSON-Response)</li>
+      <li><strong>KI-API-Routen</strong> <code>/api/ai/budget</code> + <code>/api/ai/einkaufsliste</code> angelegt</li>
+      <li>Alles committed + auf GitHub gepusht (commit <code>c1e3765</code>)</li>
     </ul>
   </div>
 
-  <!-- Offene Aufgaben aufgeteilt nach Zuständigkeit -->
+  <!-- Offene Aufgaben -->
   <div class="handover-block">
     <h3>📋 Nächste Schritte — wer macht was</h3>
 
     <div class="warn-box">
       <strong>🙋 Das musst du manuell erledigen (Claude kann das nicht):</strong>
-      Diese 3 Schritte blockieren den Launch. Danach kann Claude alles weitere bauen und deployen.
+      Nur noch diese Schritte trennen uns vom echten Launch.
     </div>
 
     <ol class="step-list">
       <li>
         <div class="step-body">
           <strong>Supabase SQL ausführen</strong>
-          <span>Im Supabase Dashboard → SQL Editor → Datei <code>C:\Users\mail\simplymindo\supabase-schema-simplymindo.sql</code> öffnen, Inhalt einfügen, ausführen. Erstellt profiles + user_apps + RLS + Trigger.</span>
+          <span>Supabase Dashboard → SQL Editor → Inhalt von <code>C:\Users\mail\simplymindo\supabase-schema-simplymindo.sql</code> einfügen → ausführen. Erstellt profiles + user_apps + RLS + Auth-Trigger.</span>
         </div>
         <span class="step-badge badge-you">Du</span>
       </li>
       <li>
         <div class="step-body">
           <strong>3 Stripe-Produkte anlegen</strong>
-          <span>Stripe Dashboard → Products → Create. Einzeln: 1,99 € einmalig. Flex: 7,99 €/Monat. Unlimited: 14,99 €/Monat. Die drei Price-IDs notieren.</span>
+          <span>Stripe Dashboard → Products → Create. Einzeln: 1,99 € einmalig. Flex: 7,99 €/Monat. Unlimited: 14,99 €/Monat. Price-IDs notieren.</span>
         </div>
         <span class="step-badge badge-you">Du</span>
       </li>
       <li>
         <div class="step-body">
           <strong>Price-IDs in .env.local eintragen</strong>
-          <span>Datei: <code>C:\Users\mail\simplymindo\.env.local</code>. Variablen: <code>STRIPE_PRICE_ID_EINZELN</code>, <code>STRIPE_PRICE_ID_FLEX</code>, <code>STRIPE_PRICE_ID_UNLIMITED</code>.</span>
+          <span><code>C:\Users\mail\simplymindo\.env.local</code> → <code>STRIPE_PRICE_ID_EINZELN</code>, <code>STRIPE_PRICE_ID_FLEX</code>, <code>STRIPE_PRICE_ID_UNLIMITED</code></span>
         </div>
         <span class="step-badge badge-you">Du</span>
       </li>
       <li>
         <div class="step-body">
           <strong>Cloudflare Pages — Portal verbinden</strong>
-          <span>Cloudflare Dashboard → Pages → Connect to Git → Repo <code>oechteli/simplymindo-portal</code>. Framework: Next.js. Build: <code>npm run build</code>. Alle .env-Variablen eintragen.</span>
+          <span>Cloudflare Dashboard → Pages → Connect to Git → <code>oechteli/simplymindo-portal</code>. Framework: Next.js. Build: <code>npm run build</code>. Alle .env-Variablen eintragen.</span>
         </div>
         <span class="step-badge badge-you">Du</span>
       </li>
       <li>
         <div class="step-body">
           <strong>Stripe Webhook eintragen</strong>
-          <span>Stripe Dashboard → Webhooks → Add endpoint. URL: <code>https://simplymindo-portal.pages.dev/api/webhook</code>. Events: <code>checkout.session.completed</code>, <code>customer.subscription.updated</code>, <code>customer.subscription.deleted</code>. Webhook-Secret in .env.local als <code>STRIPE_WEBHOOK_SECRET</code>.</span>
+          <span>Stripe → Webhooks → Add endpoint. URL: <code>https://simplymindo-portal.pages.dev/api/webhook</code>. Events: checkout.session.completed, customer.subscription.updated/deleted. Secret in <code>STRIPE_WEBHOOK_SECRET</code>.</span>
         </div>
         <span class="step-badge badge-you">Du</span>
       </li>
       <li>
         <div class="step-body">
-          <strong>End-to-End Test</strong>
-          <span>Google-Login → Aufgaben-Planer für 1,99 € kaufen → KI-Tagesplan abrufen. Damit ist Phase 1 vollständig abgeschlossen.</span>
+          <strong>End-to-End Test durchführen</strong>
+          <span>Google-Login → Aufgaben-Planer für 1,99 € kaufen → App öffnen → KI-Tagesplan abrufen. Phase 1 ist dann komplett abgeschlossen.</span>
         </div>
         <span class="step-badge badge-you">Du</span>
       </li>
@@ -270,8 +272,8 @@
 
     <div style="margin-top: 16px;">
       <div class="ok-box">
-        <strong>🤖 Das macht Claude wenn du zurück bist:</strong>
-        Sobald Stripe + Supabase konfiguriert sind, kann Claude den End-to-End Test durchführen, Login-Seite auf simplymindo-Branding umbauen, zweite App einbauen, und Phase 2 (App-Generator) starten.
+        <strong>🤖 Was Claude als nächstes macht (wenn du zurück bist):</strong>
+        Phase 2 starten — App-Generator (KI erstellt aus 1 Satz eine neue App), Komponenten-Bibliothek aufbauen, 4. App (Ziel-Coach) bauen.
       </div>
     </div>
   </div>
@@ -329,21 +331,25 @@
   <!-- Gesamtstand -->
   <div class="handover-block">
     <h3>📊 Gesamtfortschritt Phase 1</h3>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px;">
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:14px;">
       <div style="text-align:center;background:var(--green-light);border-radius:8px;padding:14px;">
-        <div style="font-size:1.8rem;font-weight:800;color:#166534;">6</div>
-        <div style="font-size:0.78rem;color:#166534;">Claude fertig</div>
+        <div style="font-size:1.8rem;font-weight:800;color:#166534;">3</div>
+        <div style="font-size:0.78rem;color:#166534;">Apps live</div>
+      </div>
+      <div style="text-align:center;background:var(--purple-light);border-radius:8px;padding:14px;">
+        <div style="font-size:1.8rem;font-weight:800;color:var(--purple);">27</div>
+        <div style="font-size:0.78rem;color:var(--purple);">Apps geplant</div>
       </div>
       <div style="text-align:center;background:#fef3c7;border-radius:8px;padding:14px;">
         <div style="font-size:1.8rem;font-weight:800;color:#92400e;">5</div>
         <div style="font-size:0.78rem;color:#92400e;">Du bist dran</div>
       </div>
       <div style="text-align:center;background:var(--gray-light);border-radius:8px;padding:14px;">
-        <div style="font-size:1.8rem;font-weight:800;color:var(--text-muted);">∞</div>
+        <div style="font-size:1.8rem;font-weight:800;color:var(--text-muted);">2</div>
         <div style="font-size:0.78rem;color:var(--text-muted);">Phase 2 wartet</div>
       </div>
     </div>
-    <p style="font-size:0.85rem;color:var(--text-muted);">Phase 1 ist technisch nahezu vollständig. Nur noch manuelle Konfiguration (Supabase SQL, Stripe, Cloudflare) nötig — dann ist simplymindo bereit für echte Nutzer.</p>
+    <p style="font-size:0.85rem;color:var(--text-muted);">Phase 1 ist technisch komplett — 3 funktionierende KI-Apps, vollständiger Checkout, Login, Dashboard, 27 geplante Apps. Nur noch manuelle Konfiguration (Supabase + Stripe + Cloudflare) — dann ist simplymindo bereit für echte Nutzer.</p>
   </div>
 
 </div>
