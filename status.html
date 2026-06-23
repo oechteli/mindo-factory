@@ -65,31 +65,33 @@
       <li class="task done"><input type="checkbox" checked disabled><div class="task-body"><strong>package.json → Name "simplymindo"</strong></div><span class="task-meta">Phase 0</span></li>
       <li class="task done"><input type="checkbox" checked disabled><div class="task-body"><strong>.env.local befüllt</strong><span>Supabase, Stripe, Anthropic — gleiche Keys wie lebenskompass (temporär)</span></div><span class="task-meta">Phase 0</span></li>
       <li class="task done"><input type="checkbox" checked disabled><div class="task-body"><strong>App-Konfigurationssystem erstellt</strong><span>src/lib/apps/index.ts mit AppConfig-Typ und 5 ersten Apps</span></div><span class="task-meta">Phase 0</span></li>
-      <li class="task done"><input type="checkbox" checked disabled><div class="task-body"><strong>Startseite auf Marktplatz umgebaut</strong><span>Neue Startseite mit App-Karten, Preisübersicht, violettem Branding</span></div><span class="task-meta">Phase 1</span></li>
-      <li class="task done"><input type="checkbox" checked disabled><div class="task-body"><strong>mindo-factory Roadmap-Seite</strong><span>Diese Seite — live auf Cloudflare Pages (mindo-factory.pages.dev)</span></div><span class="task-meta">Meta</span></li>
+      <li class="task done"><input type="checkbox" checked disabled><div class="task-body"><strong>Startseite auf Marktplatz umgebaut</strong><span>Neue Startseite mit App-Karten, Preisübersicht, violettem Branding</span></div><span class="task-meta">Phase 0</span></li>
+      <li class="task done"><input type="checkbox" checked disabled><div class="task-body"><strong>mindo-factory Roadmap-Seite</strong><span>Diese Seite — live auf Cloudflare Pages (simplymindo-roadmap.pages.dev)</span></div><span class="task-meta">Meta</span></li>
+      <li class="task done"><input type="checkbox" checked disabled><div class="task-body"><strong>Supabase-Schema: profiles + user_apps</strong><span>Tabellen, RLS-Policies, Auth-Trigger — SQL in supabase-schema-simplymindo.sql</span></div><span class="task-meta">Phase 1</span></li>
+      <li class="task done"><input type="checkbox" checked disabled><div class="task-body"><strong>Dashboard umgebaut</strong><span>Freigeschaltete Apps als Karten, Plan-Banner (free/flex/unlimited), Upgrade-Links</span></div><span class="task-meta">Phase 1</span></li>
+      <li class="task done"><input type="checkbox" checked disabled><div class="task-body"><strong>Checkout-Flow für alle 3 Pläne</strong><span>Einzeln (einmalig) / Flex / Unlimited (Abo) — Webhook schreibt user_apps + profiles</span></div><span class="task-meta">Phase 1</span></li>
+      <li class="task done"><input type="checkbox" checked disabled><div class="task-body"><strong>Aufgaben-Planer — erste App live</strong><span>Prioritäten, Erledigungs-Tracking, KI-Tagesplan via Claude Haiku</span></div><span class="task-meta">Phase 1</span></li>
+      <li class="task done"><input type="checkbox" checked disabled><div class="task-body"><strong>GitHub-Repo angelegt</strong><span>oechteli/simplymindo-portal — sauber ohne Secrets</span></div><span class="task-meta">Phase 1</span></li>
     </ul>
   </div>
 
   <!-- In Arbeit -->
   <div class="section">
-    <h2>🔨 In Arbeit (Phase 1)</h2>
+    <h2>🔨 Als nächstes (du bist dran)</h2>
     <ul class="tasks">
-      <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>Supabase-Schema: user_apps Tabelle</strong><span>Welcher Nutzer hat welche Apps gekauft. RLS damit jeder nur seine eigenen Daten sieht.</span></div></li>
-      <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>Dashboard umbauen</strong><span>Zeigt nach Login die freigeschalteten Apps als Karten — nicht mehr Lebenskompass-Bereiche</span></div></li>
-      <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>3 Stripe-Produkte anlegen</strong><span>Du legst diese im Stripe-Dashboard an → Price-IDs in .env.local eintragen</span></div></li>
-      <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>Checkout-Flow für 3 Pläne</strong><span>API-Routen für Einzeln, Flex, Unlimited</span></div></li>
-      <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>Aufgaben-Planer als erste App einbinden</strong><span>familien-dashboard/aufgaben2.html als simplymindo-App verpacken</span></div></li>
+      <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>Supabase SQL ausführen</strong><span>supabase-schema-simplymindo.sql im Supabase SQL-Editor ausführen</span></div></li>
+      <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>3 Stripe-Produkte anlegen (manuell)</strong><span>Einzeln 1,99 € einmalig / Flex 7,99 €/Mo / Unlimited 14,99 €/Mo → Price-IDs in .env.local</span></div></li>
+      <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>Cloudflare Pages: Portal deployen</strong><span>GitHub-Repo in Cloudflare Dashboard verbinden, Framework Next.js, Build: npm run build</span></div></li>
     </ul>
   </div>
 
-  <!-- Nächste Schritte -->
+  <!-- Nächste Schritte Claude -->
   <div class="section">
-    <h2>⏭️ Als nächstes (nach Phase 1)</h2>
+    <h2>⏭️ Nächste Coding-Aufgaben (Claude)</h2>
     <ul class="tasks">
-      <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>GitHub-Repo simplymindo anlegen</strong><span>oechteli/simplymindo</span></div></li>
-      <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>Cloudflare Pages Deploy</strong><span>simplymindo auf pages.dev oder eigene Domain</span></div></li>
-      <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>Kompletter Test-Durchlauf</strong><span>Registrieren → Kaufen → App nutzen → KI antwortet</span></div></li>
+      <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>End-to-End Test</strong><span>Registrieren → App kaufen → App freischalten → KI antwortet</span></div></li>
       <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>Zweite App: Einkaufslisten-Optimierer</strong></div></li>
+      <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>Login-Seite auf simplymindo-Branding aktualisieren</strong></div></li>
     </ul>
   </div>
 
@@ -102,16 +104,12 @@
         <p>Noch nicht gesichert. Bis zur Sicherung läuft alles auf *.pages.dev. Empfehlung: frühzeitig registrieren bevor jemand anders zugreift.</p>
       </div>
       <div class="card">
-        <h3>Neues Supabase-Projekt</h3>
-        <p>Aktuell teilen wir die Supabase-Datenbank mit lebenskompass (temporär). Für den Launch sollte simplymindo ein eigenes Supabase-Projekt bekommen.</p>
-      </div>
-      <div class="card">
-        <h3>GitHub-Account</h3>
-        <p>Repo soll unter "oechteli" angelegt werden. Noch ausstehend.</p>
+        <h3>Eigenes Supabase-Projekt</h3>
+        <p>Aktuell teilen wir die Datenbank mit lebenskompass (temporär). Für den Launch sollte simplymindo ein eigenes Supabase-Projekt bekommen.</p>
       </div>
       <div class="card">
         <h3>YouTube-Kanal-Name</h3>
-        <p>Wie heißt der YouTube-Kanal? "simplymindo"? Oder unter dem bestehenden Acamindo/Chanymindo-Kanal starten?</p>
+        <p>Wie heißt der YouTube-Kanal? "simplymindo"? Oder als eigener Kanal getrennt von Acamindo?</p>
       </div>
     </div>
   </div>

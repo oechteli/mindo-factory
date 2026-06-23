@@ -72,14 +72,14 @@
     </div>
     <p style="font-size:0.875rem;color:var(--text-muted);margin-bottom:14px;">Das Fundament fertigbauen: Nutzer können sich anmelden, Apps kaufen, und die erste App nutzen.</p>
     <ul class="tasks">
-      <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>Supabase-Schema anpassen</strong><span>Neue Tabelle user_apps (id, user_id, app_id, plan, purchased_at) mit RLS</span></div></li>
-      <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>Dashboard umbauen</strong><span>src/app/dashboard/page.tsx: freigeschaltete Apps als Karten statt Lebenskompass-Bereiche</span></div></li>
-      <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>App-Seite erstellen</strong><span>src/app/app/[id]/page.tsx: lädt App-Konfiguration und zeigt die richtige UI-Komponente</span></div></li>
+      <li class="task done"><input type="checkbox" checked disabled><div class="task-body"><strong>Supabase-Schema anpassen</strong><span>profiles + user_apps Tabellen, RLS-Policies, Auth-Trigger — SQL in supabase-schema-simplymindo.sql</span></div></li>
+      <li class="task done"><input type="checkbox" checked disabled><div class="task-body"><strong>Dashboard umbauen</strong><span>src/app/dashboard/page.tsx: freigeschaltete Apps als Karten, Plan-Banner, Upgrade-Links</span></div></li>
+      <li class="task done"><input type="checkbox" checked disabled><div class="task-body"><strong>App-Seite erstellen</strong><span>src/app/app/[id]/page.tsx: Zugriffsprüfung (plan/user_apps), Paywall, App-Routing</span></div></li>
       <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>Stripe: 3 Produkte anlegen (manuell im Dashboard)</strong><span>Einzeln 1,99 € einmalig / Flex 7,99 €/Mo / Unlimited 14,99 €/Mo</span></div></li>
       <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>Price-IDs in .env.local eintragen</strong><span>STRIPE_PRICE_ID_EINZELN, STRIPE_PRICE_ID_FLEX, STRIPE_PRICE_ID_UNLIMITED</span></div></li>
-      <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>Checkout-API-Route für alle 3 Pläne</strong><span>src/app/api/stripe/checkout/route.ts anpassen</span></div></li>
-      <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>Webhook: App nach Kauf freischalten</strong><span>Nach checkout.session.completed → user_apps-Eintrag anlegen</span></div></li>
-      <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>Erste App einbinden: Aufgaben-Planer</strong><span>familien-dashboard/aufgaben2.html als React-Komponente in simplymindo</span></div></li>
+      <li class="task done"><input type="checkbox" checked disabled><div class="task-body"><strong>Checkout-API-Route für alle 3 Pläne</strong><span>Plan-Parameter (einzeln/flex/unlimited), einmalig vs. Abo, appId in metadata</span></div></li>
+      <li class="task done"><input type="checkbox" checked disabled><div class="task-body"><strong>Webhook: App nach Kauf freischalten</strong><span>checkout.session.completed → user_apps bei Einzelkauf / profiles.subscription_status bei Abo</span></div></li>
+      <li class="task done"><input type="checkbox" checked disabled><div class="task-body"><strong>Erste App einbinden: Aufgaben-Planer</strong><span>src/components/apps/AufgabenPlaner.tsx: Aufgaben + Prioritäten + KI-Tagesplan (Claude Haiku)</span></div></li>
       <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>End-to-End Test</strong><span>Registrieren → App kaufen → App freischalten → App nutzen</span></div></li>
       <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>GitHub-Repo: oechteli/simplymindo</strong></div></li>
       <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>Cloudflare Pages Deploy</strong><span>Framework: Next.js, Build: npm run build, alle .env-Variablen eintragen</span></div></li>
