@@ -3,192 +3,296 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>mindo-factory · Übersicht</title>
-<link rel="stylesheet" href="style.css">
+<title>Simplymindo – Interne Roadmap</title>
+<style>
+  :root { --bg:#f8fafc;--card:#fff;--border:#e2e8f0;--purple:#7c3aed;--purple-d:#6d28d9;--green:#16a34a;--amber:#d97706;--text:#0f172a;--soft:#64748b;--radius:14px; }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,sans-serif;min-height:100vh;}
+  nav{background:rgba(255,255,255,.97);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;box-shadow:0 1px 3px rgba(0,0,0,.06);}
+  .nav-inner{max-width:1100px;margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:0;}
+  .nav-logo{font-weight:800;font-size:17px;color:var(--purple-d);padding:12px 20px 12px 0;border-right:1px solid var(--border);margin-right:8px;line-height:1.3;white-space:nowrap;}
+  .nav-logo span{color:var(--soft);font-weight:400;font-size:11px;display:block;}
+  .nav-links{display:flex;gap:2px;flex-wrap:wrap;padding:8px 0;}
+  .nav-links a{color:var(--soft);text-decoration:none;padding:7px 13px;border-radius:8px;font-size:13px;font-weight:500;transition:all .15s;cursor:pointer;white-space:nowrap;}
+  .nav-links a:hover,.nav-links a.active{background:#f5f3ff;color:var(--purple-d);}
+  .page{display:none;max-width:1000px;margin:0 auto;padding:40px 24px 80px;}
+  .page.active{display:block;}
+  .hero{background:linear-gradient(135deg,#f5f3ff 0%,#ede9fe 50%,#f5f3ff 100%);border-radius:var(--radius);padding:44px 38px;margin-bottom:28px;border:1px solid #ddd6fe;}
+  .hero h1{font-size:32px;font-weight:800;margin-bottom:10px;}.hero h1 span{color:var(--purple-d);}
+  .hero p{color:var(--soft);font-size:15px;line-height:1.75;max-width:580px;}
+  .hero-stats{display:flex;gap:14px;margin-top:22px;flex-wrap:wrap;}
+  .stat{background:#fff;border-radius:10px;padding:12px 18px;border:1px solid var(--border);}
+  .stat-n{font-size:24px;font-weight:800;color:var(--purple-d);}
+  .stat-l{font-size:11px;color:var(--soft);margin-top:2px;}
+  .progress-section{background:var(--card);border-radius:var(--radius);padding:20px 24px;border:1px solid var(--border);margin-bottom:22px;box-shadow:0 1px 3px rgba(0,0,0,.05);}
+  .progress-label{display:flex;justify-content:space-between;margin-bottom:8px;font-size:14px;font-weight:500;}
+  .progress-bar{background:#f1f5f9;border-radius:999px;height:9px;overflow:hidden;}
+  .progress-fill{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--purple),#a78bfa);}
+  .phase-card{background:var(--card);border-radius:var(--radius);border:1px solid var(--border);margin-bottom:18px;box-shadow:0 1px 3px rgba(0,0,0,.05);overflow:hidden;}
+  .phase-head{display:flex;align-items:center;gap:12px;padding:16px 20px;border-bottom:1px solid var(--border);cursor:pointer;user-select:none;}
+  .phase-num{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;font-weight:800;font-size:13px;flex-shrink:0;}
+  .phase-num.done{background:var(--green);color:#fff;}.phase-num.active{background:var(--purple);color:#fff;}.phase-num.plan{background:#e2e8f0;color:var(--soft);}
+  .phase-title{flex:1;}.phase-title h3{font-size:15px;font-weight:700;}.phase-title p{color:var(--soft);font-size:12px;margin-top:2px;}
+  .phase-badge{font-size:11px;font-weight:700;padding:2px 9px;border-radius:999px;}
+  .badge-done{background:#dcfce7;color:var(--green);}.badge-active{background:#f3f0ff;color:var(--purple-d);}.badge-plan{background:#f1f5f9;color:var(--soft);}
+  .phase-arrow{color:var(--soft);transition:transform .2s;font-size:11px;}
+  .phase-card.open .phase-arrow{transform:rotate(180deg);}
+  .phase-body{padding:20px;display:none;background:#fafbff;border-top:1px solid var(--border);}
+  .phase-card.open .phase-body{display:block;}
+  .phase-desc{color:var(--soft);font-size:13px;line-height:1.8;margin-bottom:16px;background:#fff;padding:13px 15px;border-radius:9px;border-left:3px solid var(--purple);}
+  .checklist{display:flex;flex-direction:column;gap:8px;}
+  .check-item{display:flex;align-items:flex-start;gap:11px;padding:12px 14px;background:#fff;border-radius:9px;border:1px solid var(--border);}
+  .check-item.done-item{border-color:#bbf7d0;}
+  .check-box{width:20px;height:20px;border-radius:5px;flex-shrink:0;display:grid;place-items:center;margin-top:2px;}
+  .check-box.checked{background:var(--green);}.check-box.unchecked{background:#f1f5f9;border:2px solid #cbd5e1;}.check-box.inprog{background:var(--purple);}
+  .check-icon{font-size:11px;color:#fff;font-weight:700;}
+  .check-text{flex:1;}.check-text strong{font-size:13px;font-weight:600;display:block;margin-bottom:2px;}.check-text span{font-size:12px;color:var(--soft);line-height:1.6;}
+  .check-tag{font-size:11px;padding:2px 7px;border-radius:999px;margin-left:auto;align-self:flex-start;white-space:nowrap;font-weight:600;}
+  .tag-done{background:#dcfce7;color:var(--green);}.tag-ip{background:#f3f0ff;color:var(--purple-d);}.tag-soon{background:#fef3c7;color:var(--amber);}
+  .page-header{margin-bottom:24px;}.page-header h2{font-size:24px;font-weight:800;margin-bottom:4px;}.page-header p{color:var(--soft);font-size:14px;line-height:1.7;}
+  .info-box{background:#f5f3ff;border:1px solid #ddd6fe;border-radius:9px;padding:13px 16px;margin-bottom:16px;font-size:13px;line-height:1.7;}
+  .info-box strong{color:var(--purple-d);}
+  .section-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--purple-d);margin:22px 0 9px;}
+  .arch-block{background:var(--card);border-radius:var(--radius);padding:20px;border:1px solid var(--border);margin-bottom:14px;box-shadow:0 1px 3px rgba(0,0,0,.05);}
+  .arch-block h3{font-size:14px;font-weight:700;margin-bottom:5px;}.arch-block p{color:var(--soft);font-size:13px;line-height:1.7;}
+  .arch-cols{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px;}
+  @media(max-width:600px){.arch-cols{grid-template-columns:1fr;}}
+  .arch-col{background:#f8fafc;border-radius:9px;padding:13px;border:1px solid var(--border);}
+  .arch-col h4{font-size:11px;font-weight:700;color:var(--purple-d);margin-bottom:7px;text-transform:uppercase;letter-spacing:.05em;}
+  .arch-col ul{list-style:none;display:flex;flex-direction:column;gap:4px;}
+  .arch-col ul li{font-size:12px;color:var(--soft);display:flex;gap:7px;}
+  .arch-col ul li::before{content:'›';color:var(--purple);font-weight:700;flex-shrink:0;}
+  .link-table{background:var(--card);border-radius:var(--radius);border:1px solid var(--border);overflow:hidden;margin-bottom:14px;box-shadow:0 1px 3px rgba(0,0,0,.05);}
+  .link-row{display:flex;align-items:center;gap:10px;padding:12px 16px;border-bottom:1px solid #f1f5f9;}
+  .link-row:last-child{border-bottom:none;}
+  .link-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
+  .link-name{font-size:13px;font-weight:600;min-width:180px;}.link-url{font-family:monospace;font-size:11px;color:var(--purple-d);flex:1;}
+  .link-status{font-size:11px;padding:2px 7px;border-radius:999px;font-weight:600;}
+  .app-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px;margin-top:12px;}
+  .app-card{background:var(--card);border-radius:10px;padding:14px;border:1px solid var(--border);}
+  .app-card .a-icon{font-size:22px;margin-bottom:6px;}.app-card h4{font-size:13px;font-weight:700;margin-bottom:3px;}
+  .app-card p{font-size:11px;color:var(--soft);line-height:1.5;}
+  .app-cat{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--purple-d);margin-top:14px;}
+  .preise-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:14px;}
+  @media(max-width:640px){.preise-grid{grid-template-columns:1fr;}}
+  .preis-card{background:var(--card);border-radius:var(--radius);padding:22px;border:1px solid var(--border);text-align:center;}
+  .preis-card.highlight{border-color:#a78bfa;background:#f5f3ff;}
+  .preis-name{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--soft);margin-bottom:8px;}
+  .preis-price{font-size:30px;font-weight:800;color:var(--purple-d);margin-bottom:4px;}
+  .preis-price span{font-size:14px;font-weight:500;color:var(--soft);}
+  .preis-desc{font-size:13px;color:var(--soft);margin-bottom:14px;line-height:1.6;}
+  .preis-card ul{list-style:none;text-align:left;display:flex;flex-direction:column;gap:6px;}
+  .preis-card ul li{font-size:12px;color:var(--soft);display:flex;gap:7px;}
+  .preis-card ul li::before{content:'✓';color:var(--green);font-weight:700;flex-shrink:0;}
+  .back-top{position:fixed;bottom:28px;right:28px;background:var(--purple);color:#fff;border:none;border-radius:50%;width:40px;height:40px;cursor:pointer;font-size:16px;display:grid;place-items:center;box-shadow:0 4px 14px rgba(124,58,237,.3);z-index:50;}
+</style>
 </head>
 <body>
-
-<aside class="sidebar">
-  <div class="sidebar-logo">
-    <a href="index.html">
-      <span class="logo-icon">⚙️</span>
-      <div>
-        <div class="logo-text">mindo-factory</div>
-        <div class="logo-sub">Internes Projekt-Dashboard</div>
-      </div>
-    </a>
-  </div>
-  <nav class="sidebar-nav">
-    <div class="nav-group">
-      <div class="nav-group-label">Start</div>
-      <a href="index.html" class="active"><span class="nav-icon">🏠</span> Übersicht</a>
-      <a href="status.html"><span class="nav-icon">📊</span> Aktueller Status <span class="nav-badge wip">Aktiv</span></a>
-      <a href="uebergabe.html"><span class="nav-icon">🔁</span> Übergabeprotokoll</a>
-    </div>
-    <div class="nav-group">
-      <div class="nav-group-label">Planung</div>
-      <a href="roadmap.html"><span class="nav-icon">📋</span> Roadmap</a>
-      <a href="apps.html"><span class="nav-icon">📱</span> Alle Apps</a>
-      <a href="preise.html"><span class="nav-icon">💰</span> Preismodell</a>
-    </div>
-    <div class="nav-group">
-      <div class="nav-group-label">Das System</div>
-      <a href="architektur.html"><span class="nav-icon">🏛️</span> Architektur</a>
-      <a href="produktion.html"><span class="nav-icon">🏭</span> App-Produktion</a>
-      <a href="marketing.html"><span class="nav-icon">🎬</span> Marketing & YouTube</a>
-    </div>
-    <div class="nav-group">
-      <div class="nav-group-label">Projekt-Info</div>
-      <a href="marke.html"><span class="nav-icon">🎨</span> Marke & Produkte</a>
-      <a href="techstack.html"><span class="nav-icon">🔧</span> Tech-Stack</a>
-    </div>
-  </nav>
-  <div class="sidebar-footer">
-    <strong>Stand: Juni 2026</strong>
-    Checkboxen werden von Claude automatisch aktualisiert.
-  </div>
-</aside>
-
-<div class="page-wrap">
-<div class="page-content">
-
-  <div class="page-header">
-    <h1>🏠 Willkommen in der mindo-factory</h1>
-    <p>Das interne Dashboard für den Aufbau von simplymindo — einer Plattform mit 27+ KI-Mini-Apps und einer vollautomatischen Produktionsmaschine.</p>
-    <span class="updated">🤖 Checkboxen werden von Claude automatisch aktualisiert</span>
-  </div>
-
-  <!-- Stats -->
-  <div class="stat-grid">
-    <div class="stat-card highlight">
-      <div class="stat-num">1</div>
-      <div class="stat-label">App live</div>
-      <div class="stat-sub">Aufgaben-Planer</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-num">4</div>
-      <div class="stat-label">Phasen gesamt</div>
-      <div class="stat-sub">Phase 1 aktiv</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-num">27+</div>
-      <div class="stat-label">Geplante Apps</div>
-      <div class="stat-sub">6 Kategorien</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-num">0</div>
-      <div class="stat-label">YouTube-Videos</div>
-      <div class="stat-sub">Ziel: 1 pro App</div>
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">⚡ Simplymindo<span>Interne Roadmap</span></div>
+    <div class="nav-links">
+      <a onclick="show('uebersicht')" class="active" id="nav-uebersicht">🏠 Übersicht</a>
+      <a onclick="show('apps')" id="nav-apps">📱 Apps</a>
+      <a onclick="show('preise')" id="nav-preise">💰 Preismodell</a>
+      <a onclick="show('architektur')" id="nav-architektur">🏗️ Architektur</a>
+      <a onclick="show('links')" id="nav-links">🔗 Links</a>
     </div>
   </div>
+</nav>
 
-  <!-- Was ist das? -->
-  <div class="section">
-    <h2>🎯 Was ist die mindo-factory?</h2>
-    <div class="info-box">
-      <strong>Das Ziel in einem Satz:</strong> Ein System bauen, das kontinuierlich neue KI-Mini-Apps produziert, vermarktet und verkauft — mit immer weniger manuellem Aufwand.
+<!-- ÜBERSICHT -->
+<div class="page active" id="page-uebersicht">
+  <div class="hero">
+    <h1>KI-Mini-Apps <span>für den Alltag</span></h1>
+    <p>Simplymindo ist ein B2C-Marktplatz mit KI-Mini-Apps. Jede App löst ein konkretes Problem in unter 5 Minuten — kaufbar als Einzelapp, Flex-Abo oder Unlimited.</p>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-n">27</div><div class="stat-l">Apps geplant</div></div>
+      <div class="stat"><div class="stat-n">3</div><div class="stat-l">Preispläne</div></div>
+      <div class="stat"><div class="stat-n">~55%</div><div class="stat-l">Phase 1 Fortschritt</div></div>
+      <div class="stat"><div class="stat-n">B2C</div><div class="stat-l">Geschäftsmodell</div></div>
     </div>
-    <div class="card-grid">
-      <div class="card">
-        <div class="card-icon">🛒</div>
-        <h3>simplymindo — der Marktplatz</h3>
-        <p>Die Kunden-Seite. Nutzer kaufen dort einzelne KI-Apps (1,99 €) oder ein Paket (bis 14,99 €/Monat). Jede App löst ein konkretes Alltags-Problem in 5 Minuten.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon">🏭</div>
-        <h3>Der App-Generator</h3>
-        <p>Das Herzstück der Fabrik. KI erzeugt auf Knopfdruck eine vollständige neue App: Konfiguration, Prompt, UI-Baustein. Ziel: neue App in unter 30 Minuten.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon">🎬</div>
-        <h3>Die Marketing-Maschine</h3>
-        <p>Zu jeder App wird automatisch ein YouTube-Video produziert: Skript → Bilder → Voiceover → Upload. Keine manuelle Videobearbeitung nötig.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon">🔄</div>
-        <h3>Der Kreislauf</h3>
-        <p>YouTube bringt Besucher → Besucher kaufen Apps → Einnahmen finanzieren neue Apps → neue Apps bringen neue Videos → mehr Besucher. Ein sich selbst verstärkender Kreislauf.</p>
+  </div>
+  <div class="progress-section">
+    <div class="progress-label"><span>Phase 1 Fortschritt</span><span style="color:var(--purple-d);font-weight:700">~55%</span></div>
+    <div class="progress-bar"><div class="progress-fill" style="width:55%"></div></div>
+  </div>
+  <div class="info-box"><strong>Was ist Simplymindo?</strong> Ein App-Marktplatz mit schlanken KI-Tools für den Alltag. Kein Abo-Zwang — Nutzer kaufen genau die Apps, die sie brauchen. Basis von lebenskompass kopiert und auf Simplymindo umgebaut.</div>
+
+  <div class="section-title">Phasen</div>
+
+  <div class="phase-card open" onclick="togglePhase(this)">
+    <div class="phase-head">
+      <div class="phase-num done">0</div>
+      <div class="phase-title"><h3>Vorbereitung</h3><p>Basis von lebenskompass kopiert, Marktplatz-Struktur gebaut</p></div>
+      <span class="phase-badge badge-done">✅ Abgeschlossen</span>
+      <span class="phase-arrow">▼</span>
+    </div>
+    <div class="phase-body">
+      <div class="phase-desc">Nicht bei null anfangen — lebenskompass hatte schon Auth, Supabase, Stripe und das App-Routing. Alles kopiert, umgebaut, Branding auf Violet umgestellt.</div>
+      <div class="checklist">
+        <div class="check-item done-item"><div class="check-box checked"><span class="check-icon">✓</span></div><div class="check-text"><strong>lebenskompass als Basis kopiert</strong><span>Projektstruktur, Auth, Routing und Shared-UI übernommen, Original unangetastet.</span></div><span class="check-tag tag-done">Fertig</span></div>
+        <div class="check-item done-item"><div class="check-box checked"><span class="check-icon">✓</span></div><div class="check-text"><strong>App-Konfigurationssystem</strong><span>src/lib/apps/index.ts — AppConfig-Typ, APPS-Array, PLANS-Objekt.</span></div><span class="check-tag tag-done">Fertig</span></div>
+        <div class="check-item done-item"><div class="check-box checked"><span class="check-icon">✓</span></div><div class="check-text"><strong>Startseite als App-Marktplatz</strong><span>App-Karten, Preisübersicht, violettes Simplymindo-Branding.</span></div><span class="check-tag tag-done">Fertig</span></div>
+        <div class="check-item done-item"><div class="check-box checked"><span class="check-icon">✓</span></div><div class="check-text"><strong>GitHub + Cloudflare eingerichtet</strong><span>Repos oechteli/simplymindo-portal + oechteli/mindo-factory angelegt.</span></div><span class="check-tag tag-done">Fertig</span></div>
       </div>
     </div>
   </div>
 
-  <!-- Phasen-Überblick -->
-  <div class="section">
-    <h2>📍 Wo stehen wir?</h2>
-
-    <div class="phase">
-      <div class="phase-header">
-        <h2>Phase 0 — Vorbereitung</h2>
-        <span class="phase-tag done">✅ Abgeschlossen</span>
-      </div>
-      <ul class="tasks">
-        <li class="task done"><input type="checkbox" checked disabled><div class="task-body"><strong>Basis-Projekt (lebenskompass) kopiert</strong><span>Next.js 14, Supabase, Stripe, Claude Haiku — alles bereits vorhanden</span></div></li>
-        <li class="task done"><input type="checkbox" checked disabled><div class="task-body"><strong>Projektname auf "simplymindo" gesetzt</strong></div></li>
-        <li class="task done"><input type="checkbox" checked disabled><div class="task-body"><strong>Keys und Credentials eingetragen</strong><span>Supabase, Stripe, Anthropic API</span></div></li>
-        <li class="task done"><input type="checkbox" checked disabled><div class="task-body"><strong>App-Konfigurationssystem angelegt</strong><span>src/lib/apps/index.ts — jede App = eine Konfigdatei</span></div></li>
-        <li class="task done"><input type="checkbox" checked disabled><div class="task-body"><strong>Startseite auf Marktplatz umgebaut</strong><span>Violettes Design, App-Karten, Preisübersicht</span></div></li>
-      </ul>
+  <div class="phase-card open" onclick="togglePhase(this)">
+    <div class="phase-head">
+      <div class="phase-num active">1</div>
+      <div class="phase-title"><h3>Sockel — erste Apps kaufbar machen</h3><p>Supabase, Stripe, erste 3 Apps live</p></div>
+      <span class="phase-badge badge-active">Aktiv</span>
+      <span class="phase-arrow">▼</span>
     </div>
-
-    <div class="phase">
-      <div class="phase-header">
-        <h2>Phase 1 — Sockel</h2>
-        <span class="phase-tag active">🔨 Aktiv</span>
+    <div class="phase-body">
+      <div class="phase-desc">Das Fundament: Nutzer können sich anmelden, Apps kaufen und sofort nutzen. Drei Apps sind bereits implementiert — Stripe und Domain müssen noch verkabelt werden.</div>
+      <div class="checklist">
+        <div class="check-item done-item"><div class="check-box checked"><span class="check-icon">✓</span></div><div class="check-text"><strong>Supabase-Schema</strong><span>profiles + user_apps Tabellen, RLS-Policies, Auth-Trigger.</span></div><span class="check-tag tag-done">Fertig</span></div>
+        <div class="check-item done-item"><div class="check-box checked"><span class="check-icon">✓</span></div><div class="check-text"><strong>Dashboard umgebaut</strong><span>Freigeschaltete Apps als Karten, Plan-Banner, Upgrade-Links.</span></div><span class="check-tag tag-done">Fertig</span></div>
+        <div class="check-item done-item"><div class="check-box checked"><span class="check-icon">✓</span></div><div class="check-text"><strong>Checkout-API für alle 3 Pläne</strong><span>Einzeln / Flex / Unlimited — Stripe-Weiterleitung + Webhook.</span></div><span class="check-tag tag-done">Fertig</span></div>
+        <div class="check-item done-item"><div class="check-box checked"><span class="check-icon">✓</span></div><div class="check-text"><strong>App 1: Aufgaben-Planer mit KI-Tagesplan</strong><span>Claude Haiku erstellt automatisch optimierten Tagesplan.</span></div><span class="check-tag tag-done">Fertig</span></div>
+        <div class="check-item done-item"><div class="check-box checked"><span class="check-icon">✓</span></div><div class="check-text"><strong>App 2: Budget-Rechner</strong><span>Einnahmen/Ausgaben + KI-Spartipps.</span></div><span class="check-tag tag-done">Fertig</span></div>
+        <div class="check-item done-item"><div class="check-box checked"><span class="check-icon">✓</span></div><div class="check-text"><strong>App 3: Einkaufslisten-Optimierer</strong><span>KI sortiert Liste nach Supermarkt-Gängen.</span></div><span class="check-tag tag-done">Fertig</span></div>
+        <div class="check-item"><div class="check-box unchecked"></div><div class="check-text"><strong>Stripe: 3 Produkte + Price-IDs anlegen</strong><span>Im Stripe Dashboard anlegen (Einzeln 1,99 €, Flex 7,99 €/Mo, Unlimited 14,99 €/Mo), IDs in .env.local eintragen.</span></div><span class="check-tag tag-soon">Offen</span></div>
+        <div class="check-item"><div class="check-box unchecked"></div><div class="check-text"><strong>Portal deployen (simplymindo-portal)</strong><span>GitHub-Repo mit Cloudflare verbinden (Next.js Preset), Stripe Webhook-URL eintragen.</span></div><span class="check-tag tag-soon">Offen</span></div>
+        <div class="check-item"><div class="check-box unchecked"></div><div class="check-text"><strong>Domain www.simplymindo.de anbinden</strong><span>DNS-Eintrag bei Cloudflare, automatisches HTTPS.</span></div><span class="check-tag tag-soon">Offen</span></div>
       </div>
-      <ul class="tasks">
-        <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>Supabase-Schema für simplymindo anlegen</strong><span>Tabelle user_apps: welcher Nutzer hat welche Apps gekauft</span></div></li>
-        <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>Dashboard umbauen</strong><span>Nach Login: freigeschaltete Apps anzeigen, nicht Lebenskompass-Bereiche</span></div></li>
-        <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>3 Stripe-Produkte anlegen</strong><span>Einzeln 1,99 € / Flex 7,99 € / Unlimited 14,99 €</span></div></li>
-        <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>Stripe-Checkout für alle 3 Pläne</strong></div></li>
-        <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>Erste App: Aufgaben-Planer einbinden</strong><span>Fertiges HTML aus familien-dashboard als simplymindo-App verpacken</span></div></li>
-        <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>GitHub-Repo + Cloudflare Deploy</strong><span>oechteli/simplymindo → Cloudflare Pages</span></div></li>
-      </ul>
-    </div>
-
-    <div class="phase">
-      <div class="phase-header">
-        <h2>Phase 2 — App-Generator</h2>
-        <span class="phase-tag planned">📋 Geplant</span>
-      </div>
-      <ul class="tasks">
-        <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>Komponenten-Bibliothek</strong><span>5–10 wiederverwendbare UI-Bausteine</span></div></li>
-        <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>KI-Generator-Prompt</strong><span>Aus 1 Satz → vollständige App-Konfiguration</span></div></li>
-        <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>Admin-UI für App-Generierung</strong></div></li>
-        <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>10 Apps im Marktplatz</strong></div></li>
-      </ul>
-    </div>
-
-    <div class="phase">
-      <div class="phase-header">
-        <h2>Phase 3 — Marketing-Maschine</h2>
-        <span class="phase-tag planned">📋 Geplant</span>
-      </div>
-      <ul class="tasks">
-        <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>YouTube-Kanal</strong></div></li>
-        <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>Video-Pipeline aufbauen</strong><span>Skript → Bilder → Voiceover → Upload</span></div></li>
-        <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>Erstes automatisches Video live</strong></div></li>
-      </ul>
-    </div>
-
-    <div class="phase">
-      <div class="phase-header">
-        <h2>Phase 4 — Skalierung</h2>
-        <span class="phase-tag planned">📋 Geplant</span>
-      </div>
-      <ul class="tasks">
-        <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>27+ Apps im Marktplatz</strong></div></li>
-        <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>Community (Unlimited-Plan)</strong></div></li>
-        <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>Affiliate-Programm</strong></div></li>
-        <li class="task"><input type="checkbox" disabled><div class="task-body"><strong>simplymindo.de Domain sichern</strong></div></li>
-      </ul>
     </div>
   </div>
 
+  <div class="phase-card" onclick="togglePhase(this)">
+    <div class="phase-head">
+      <div class="phase-num plan">2</div>
+      <div class="phase-title"><h3>App-Generator</h3><p>KI erstellt neue Apps automatisch</p></div>
+      <span class="phase-badge badge-plan">Geplant</span>
+      <span class="phase-arrow">▼</span>
+    </div>
+    <div class="phase-body">
+      <div class="phase-desc">Statt jede App manuell zu bauen, erstellt ein KI-Agent neue Apps automatisch: Idee eingeben → Code generiert → direkt im Marktplatz verfügbar.</div>
+      <div class="checklist">
+        <div class="check-item"><div class="check-box unchecked"></div><div class="check-text"><strong>App-Generator-Konzept definieren</strong><span>Welche Typen sind automatisch generierbar? Input/Output-Format festlegen.</span></div></div>
+        <div class="check-item"><div class="check-box unchecked"></div><div class="check-text"><strong>KI-Komponenten-Bibliothek</strong><span>Wiederverwendbare UI-Bausteine für schnelle App-Erstellung.</span></div></div>
+        <div class="check-item"><div class="check-box unchecked"></div><div class="check-text"><strong>App-Test-Pipeline</strong><span>Qualitätsprüfung bevor eine App im Marktplatz erscheint.</span></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="phase-card" onclick="togglePhase(this)">
+    <div class="phase-head">
+      <div class="phase-num plan">3</div>
+      <div class="phase-title"><h3>YouTube + Marketing</h3><p>Automatisierter Funnel via Chanymindo-Pipeline</p></div>
+      <span class="phase-badge badge-plan">Geplant</span>
+      <span class="phase-arrow">▼</span>
+    </div>
+    <div class="phase-body">
+      <div class="phase-desc">Chanymindo produziert automatisch YouTube-Videos über Simplymindo-Apps — als kostenloser Marketingkanal. Jedes Video demonstriert eine App und leitet zu simplymindo.de.</div>
+      <div class="checklist">
+        <div class="check-item"><div class="check-box unchecked"></div><div class="check-text"><strong>YouTube-Kanal aufbauen</strong><span>Kanaldesign, erste 5 Demo-Videos via Chanymindo-Pipeline.</span></div></div>
+        <div class="check-item"><div class="check-box unchecked"></div><div class="check-text"><strong>Affiliate-Programm</strong><span>Provision für Empfehlungen auf verkaufte Apps.</span></div></div>
+      </div>
+    </div>
+  </div>
 </div>
-<footer class="page-footer">
-  <span>© 2026 mindo-factory · Internes Dashboard</span>
-  <a href="https://github.com/oechteli/mindo-factory" target="_blank">GitHub →</a>
-</footer>
+
+<!-- APPS -->
+<div class="page" id="page-apps">
+  <div class="page-header"><h2>📱 App-Katalog</h2><p>27 Apps in 6 Kategorien geplant. Aktuell implementiert: 3.</p></div>
+  <div class="info-box"><strong>Aktuell live:</strong> Aufgaben-Planer, Budget-Rechner, Einkaufslisten-Optimierer.</div>
+  <div class="app-cat">✅ Bereits implementiert</div>
+  <div class="app-grid">
+    <div class="app-card"><div class="a-icon">📋</div><h4>Aufgaben-Planer</h4><p>KI erstellt automatisch einen optimierten Tagesplan aus deinen Aufgaben.</p></div>
+    <div class="app-card"><div class="a-icon">💰</div><h4>Budget-Rechner</h4><p>Einnahmen & Ausgaben analysieren, KI gibt Spartipps.</p></div>
+    <div class="app-card"><div class="a-icon">🛒</div><h4>Einkaufslisten-Optimierer</h4><p>KI sortiert die Liste nach Supermarkt-Gängen.</p></div>
+  </div>
+  <div class="app-cat" style="margin-top:20px">📋 Geplant: Produktivität</div>
+  <div class="app-grid">
+    <div class="app-card"><div class="a-icon">🎯</div><h4>Ziele-Planer</h4><p>Jahres- und Monatsziele, KI bricht sie in Wochen-Aufgaben auf.</p></div>
+    <div class="app-card"><div class="a-icon">⏱️</div><h4>Pomodoro+</h4><p>Fokus-Timer mit KI-Pausen-Empfehlungen.</p></div>
+    <div class="app-card"><div class="a-icon">📝</div><h4>Notiz-Sortierer</h4><p>Rohe Gedanken eingeben — KI strukturiert und kategorisiert.</p></div>
+    <div class="app-card"><div class="a-icon">📧</div><h4>E-Mail-Assistent</h4><p>KI formuliert professionelle E-Mails aus Stichpunkten.</p></div>
+  </div>
+  <div class="app-cat" style="margin-top:20px">📋 Geplant: Gesundheit & Ernährung</div>
+  <div class="app-grid">
+    <div class="app-card"><div class="a-icon">🥗</div><h4>Mahlzeiten-Planer</h4><p>Wochenplan mit Rezepten und automatischer Einkaufsliste.</p></div>
+    <div class="app-card"><div class="a-icon">💪</div><h4>Trainings-Planer</h4><p>Wöchentlicher Plan nach Ziel und verfügbarer Zeit.</p></div>
+    <div class="app-card"><div class="a-icon">💊</div><h4>Supplement-Check</h4><p>KI analysiert Supplemente und gibt Optimierungshinweise.</p></div>
+  </div>
+  <div class="app-cat" style="margin-top:20px">📋 Geplant: Finanzen</div>
+  <div class="app-grid">
+    <div class="app-card"><div class="a-icon">📈</div><h4>Sparplan-Rechner</h4><p>Wieviel musst du monatlich sparen, um ein Ziel zu erreichen?</p></div>
+    <div class="app-card"><div class="a-icon">🏠</div><h4>Miet-vs-Kauf-Rechner</h4><p>Break-even-Analyse für Immobilienkauf in deiner Stadt.</p></div>
+    <div class="app-card"><div class="a-icon">🧾</div><h4>Steuer-Optimizer</h4><p>Welche Ausgaben sind steuerlich absetzbar?</p></div>
+  </div>
 </div>
+
+<!-- PREISE -->
+<div class="page" id="page-preise">
+  <div class="page-header"><h2>💰 Preismodell</h2><p>Drei Wege — flexibel nach Bedarf.</p></div>
+  <div class="preise-grid">
+    <div class="preis-card">
+      <div class="preis-name">Einzeln</div>
+      <div class="preis-price">1,99 €<span> einmalig</span></div>
+      <div class="preis-desc">Eine App dauerhaft kaufen. Kein Abo.</div>
+      <ul><li>1 App dauerhaft</li><li>Alle Updates inklusive</li><li>Kein Abo-Zwang</li></ul>
+    </div>
+    <div class="preis-card highlight">
+      <div class="preis-name">Flex</div>
+      <div class="preis-price">7,99 €<span> /Monat</span></div>
+      <div class="preis-desc">5 Apps frei wählbar, monatlich wechselbar.</div>
+      <ul><li>5 Apps gleichzeitig</li><li>Monatlich wechseln</li><li>Alle Kategorien</li><li>Jederzeit kündbar</li></ul>
+    </div>
+    <div class="preis-card">
+      <div class="preis-name">Unlimited</div>
+      <div class="preis-price">14,99 €<span> /Monat</span></div>
+      <div class="preis-desc">Alle Apps + Community.</div>
+      <ul><li>Alle Apps freigeschaltet</li><li>Neue Apps sofort</li><li>Community-Bereich</li><li>Beta-Zugang</li></ul>
+    </div>
+  </div>
+  <div class="section-title">Stripe-Setup (ausstehend)</div>
+  <div class="checklist">
+    <div class="check-item"><div class="check-box unchecked"></div><div class="check-text"><strong>Produkt "Einzeln" anlegen</strong><span>Einmalzahlung 1,99 €, Price-ID → STRIPE_PRICE_ID_EINZELN</span></div></div>
+    <div class="check-item"><div class="check-box unchecked"></div><div class="check-text"><strong>Produkt "Flex" anlegen</strong><span>Abo 7,99 €/Monat, Price-ID → STRIPE_PRICE_ID_FLEX</span></div></div>
+    <div class="check-item"><div class="check-box unchecked"></div><div class="check-text"><strong>Produkt "Unlimited" anlegen</strong><span>Abo 14,99 €/Monat, Price-ID → STRIPE_PRICE_ID_UNLIMITED</span></div></div>
+    <div class="check-item"><div class="check-box unchecked"></div><div class="check-text"><strong>Webhook konfigurieren</strong><span>checkout.session.completed → simplymindo.de/api/webhooks/stripe</span></div></div>
+  </div>
+</div>
+
+<!-- ARCHITEKTUR -->
+<div class="page" id="page-architektur">
+  <div class="page-header"><h2>🏗️ Architektur</h2></div>
+  <div class="arch-block"><h3>🌐 Frontend: simplymindo.de</h3><p>Next.js 14 (App Router), Tailwind CSS. Cloudflare Pages (simplymindo-portal). GitHub: oechteli/simplymindo-portal.</p></div>
+  <div class="arch-block"><h3>🗄️ Datenbank: Supabase</h3><p>PostgreSQL via Supabase. Tabellen: profiles, user_apps. RLS-Policies, Auth-Trigger. Schema-Datei: supabase-schema-simplymindo.sql im Repo.</p></div>
+  <div class="arch-block"><h3>💳 Zahlungen: Stripe</h3><p>3 Produkte (Einzeln / Flex / Unlimited). Checkout-API + Webhook für automatische App-Freischaltung nach Zahlung.</p></div>
+  <div class="arch-block"><h3>🤖 KI: Claude Haiku</h3><p>Anthropic Claude Haiku für alle KI-Funktionen in den Apps. Kostengünstig, schnell, via API angebunden.</p></div>
+  <div class="section-title">Tech-Stack</div>
+  <div class="arch-cols">
+    <div class="arch-col"><h4>Frontend</h4><ul><li>Next.js 14 (App Router)</li><li>TypeScript + Tailwind CSS</li><li>Cloudflare Pages</li></ul></div>
+    <div class="arch-col"><h4>Backend / Services</h4><ul><li>Supabase (Auth + DB)</li><li>Stripe (Payments)</li><li>Claude Haiku (KI)</li></ul></div>
+  </div>
+</div>
+
+<!-- LINKS -->
+<div class="page" id="page-links">
+  <div class="page-header"><h2>🔗 Alle Links</h2></div>
+  <div class="section-title">Webseiten</div>
+  <div class="link-table">
+    <div class="link-row"><div class="link-dot" style="background:var(--green)"></div><div class="link-name">Roadmap (intern)</div><div class="link-url">simplymindo-roadmap.pages.dev</div><span class="link-status badge-done">Live</span></div>
+    <div class="link-row"><div class="link-dot" style="background:#cbd5e1"></div><div class="link-name">Kunden-Portal</div><div class="link-url">simplymindo-portal.pages.dev</div><span class="link-status badge-plan">Noch deployen</span></div>
+    <div class="link-row"><div class="link-dot" style="background:#cbd5e1"></div><div class="link-name">Domain</div><div class="link-url">www.simplymindo.de</div><span class="link-status badge-plan">Noch verbinden</span></div>
+  </div>
+  <div class="section-title">GitHub</div>
+  <div class="link-table">
+    <div class="link-row"><div class="link-dot" style="background:var(--green)"></div><div class="link-name">Portal (Next.js)</div><div class="link-url">github.com/oechteli/simplymindo-portal</div><span class="link-status badge-done">Aktiv</span></div>
+    <div class="link-row"><div class="link-dot" style="background:var(--green)"></div><div class="link-name">Roadmap</div><div class="link-url">github.com/oechteli/mindo-factory</div><span class="link-status badge-done">Aktiv</span></div>
+  </div>
+</div>
+
+<button class="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script>
+function show(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.nav-links a').forEach(a=>a.classList.remove('active'));document.getElementById('page-'+id).classList.add('active');const n=document.getElementById('nav-'+id);if(n)n.classList.add('active');window.scrollTo({top:0,behavior:'smooth'});}
+function togglePhase(card){card.classList.toggle('open');}
+</script>
 </body>
 </html>
